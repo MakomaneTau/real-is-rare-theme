@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "dev": "shopify theme dev --store sjmihm-my.myshopify.com",
+    "check": "shopify theme check"
+  }
+}
