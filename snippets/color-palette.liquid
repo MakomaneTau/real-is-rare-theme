@@ -8,6 +8,7 @@
   assign palette_lightest_brightness = -1
   assign palette_darkest = '#000000'
   assign palette_darkest_brightness = 256
+  assign page_background_brightness = settings.page_background_color | color_brightness
 
   for palette_color in settings.color_palette
     if palette_color != blank and palette_color.alpha == 1
@@ -234,5 +235,8 @@
   body {
     color: var(--color-foreground);
     background-color: var(--color-background);
+    {% if page_background_brightness < 128 %}
+      color-scheme: dark;
+    {% endif %}
   }
 {% endstyle %}
