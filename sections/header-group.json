@@ -66,7 +66,7 @@
         "divider_size": "page-width",
         "border_width": 0,
         "background_color_top": "{{ settings.color_palette.background }}",
-        "text_color_transparent_home": "{{ settings.color_palette.background }}",
+        "text_color_transparent_home": "{{ settings.color_palette.foreground }}",
         "enable_transparent_header_home": true,
         "enable_transparent_header_product": true,
         "enable_transparent_header_collection": false
