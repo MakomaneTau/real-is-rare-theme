@@ -70,10 +70,17 @@
   </a>
   <div class="collection-card__inner">
     {{ card_image }}
+    {% if block_settings.placement == 'on_image' %}
+      <div class="collection-card__content layout-panel-flex--column">
+        {{ children }}
+      </div>
+    {% endif %}
+  </div>
+  {% if block_settings.placement == 'below_image' %}
     <div class="collection-card__content layout-panel-flex--column">
       {{ children }}
     </div>
-  </div>
+  {% endif %}
 </div>
 
 {% stylesheet %}
@@ -144,6 +151,72 @@
 
   .collection-card.collection-card--image-bg .collection-card__content {
     padding: var(--padding-lg);
+  }
+
+  .collection-card:not(.collection-card--image-bg) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collection-card:not(.collection-card--image-bg) .collection-card__content {
+    height: auto;
+    margin-top: auto;
+    padding-top: var(--gap);
+    align-items: var(--horizontal-alignment);
+    pointer-events: none;
+  }
+
+  .collection-card__content > .text-block--background {
+    --color: #fff !important;
+    --color-rgb: 255 255 255 !important;
+
+    width: 11.5rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    justify-content: center;
+    color: #fff;
+    background: #000;
+    border: 1px solid #fff;
+    border-radius: 0;
+    transition:
+      color var(--animation-speed) var(--animation-easing),
+      background-color var(--animation-speed) var(--animation-easing),
+      border-color var(--animation-speed) var(--animation-easing);
+  }
+
+  .collection-card__content > .text-block--background > * {
+    color: #fff !important;
+    margin: 0;
+    font-family: var(--font-body--family);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  @media (any-pointer: fine) {
+    .collection-card:hover .collection-card__content > .text-block--background,
+    .collection-card:focus-within .collection-card__content > .text-block--background {
+      --color: #000 !important;
+      --color-rgb: 0 0 0 !important;
+
+      color: #000;
+      background-color: #fff;
+      border-color: #000;
+    }
+
+    .collection-card:hover .collection-card__content > .text-block--background > *,
+    .collection-card:focus-within .collection-card__content > .text-block--background > * {
+      color: #000 !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .collection-card__content > .text-block--background {
+      transition: none;
+    }
   }
 
   .collection-card--image-height-fixed {
