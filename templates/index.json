@@ -316,6 +316,32 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "text_featured_release": {
+                  "type": "text",
+                  "name": "Featured release eyebrow",
+                  "settings": {
+                    "text": "<p>FEATURED RELEASE<\/p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.75rem",
+                    "line_height": "normal",
+                    "letter_spacing": "loose",
+                    "case": "uppercase",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "product_title_VTDTK3": {
                   "type": "product-title",
                   "name": "t:names.title",
@@ -323,9 +349,9 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "type_preset": "h3",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -365,7 +391,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["product_title_VTDTK3", "price_wcLdQ8"]
+              "block_order": ["text_featured_release", "product_title_VTDTK3", "price_wcLdQ8"]
             },
             "review_4hbMPH": {
               "type": "review",
@@ -448,7 +474,7 @@
                   "type": "add-to-cart",
                   "static": true,
                   "settings": {
-                    "style_class": "button-secondary",
+                    "style_class": "button",
                     "custom_button_background": "{{ settings.color_palette.foreground }}",
                     "custom_button_text": "{{ settings.color_palette.background }}",
                     "custom_button_border": "{{ settings.color_palette.background }}"

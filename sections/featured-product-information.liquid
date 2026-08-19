@@ -37,6 +37,27 @@
   %}
 </featured-product-information>
 
+{% stylesheet %}
+  featured-product-information .add-to-cart-button {
+    --button-background-color: transparent;
+    --button-color: #fff;
+    --button-border-color: #fff;
+    --button-border-width: 1px;
+  }
+
+  featured-product-information .add-to-cart-button:not(:disabled):hover {
+    --button-background-color: #fff;
+    --button-color: var(--color-background);
+    --button-border-color: #fff;
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    featured-product-information .add-to-cart-button:not(:disabled):hover {
+      translate: 0 -2px;
+    }
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.featured_product_information",
