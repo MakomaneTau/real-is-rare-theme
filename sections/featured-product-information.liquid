@@ -38,6 +38,10 @@
 </featured-product-information>
 
 {% stylesheet %}
+  featured-product-information .quantity-selector-wrapper {
+    display: none;
+  }
+
   featured-product-information .add-to-cart-button {
     --button-background-color: transparent;
     --button-color: #fff;
@@ -77,6 +81,12 @@
       "type": "product",
       "id": "product",
       "label": "t:settings.product"
+    },
+    {
+      "type": "text",
+      "id": "product_link_label",
+      "label": "t:settings.label",
+      "default": "View full product details"
     },
     {
       "type": "header",

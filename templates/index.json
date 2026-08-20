@@ -240,7 +240,7 @@
             "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "bottom",
-            "thumbnail_width": 44,
+            "thumbnail_width": 60,
             "thumbnail_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -393,6 +393,32 @@
               },
               "block_order": ["text_featured_release", "product_title_VTDTK3", "price_wcLdQ8"]
             },
+            "text_product_story": {
+              "type": "text",
+              "name": "Featured product story",
+              "settings": {
+                "text": "<p>A statement in restraint. Made for those who recognize value before the crowd does.<\/p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "loose",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "review_4hbMPH": {
               "type": "review",
               "name": "t:names.product_review_stars",
@@ -433,7 +459,7 @@
               "type": "buy-buttons",
               "name": "t:names.product_buy_buttons",
               "settings": {
-                "stacking": false,
+                "stacking": true,
                 "text_color": "",
                 "show_pickup_availability": true,
                 "gift_card_form": true,
@@ -489,23 +515,52 @@
                 }
               },
               "block_order": []
+            },
+            "text_secure_checkout": {
+              "type": "text",
+              "name": "Checkout reassurance",
+              "settings": {
+                "text": "<p>Secure checkout<\/p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.75rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.color1 }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "group_tJk7eA",
+            "text_product_story",
             "review_4hbMPH",
             "variant_picker_kwdTUM",
-            "buy_buttons_qYbcHH"
+            "buy_buttons_qYbcHH",
+            "text_secure_checkout"
           ]
         }
       },
       "name": "t:names.featured_product_information",
       "settings": {
         "product": "rare-coin-t-shirt-black",
+        "product_link_label": "View full product details",
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
         "equal_columns": true,
-        "limit_details_width": false,
+        "limit_details_width": true,
         "gap": 48,
         "background_color": "",
         "padding-block-start": 40,

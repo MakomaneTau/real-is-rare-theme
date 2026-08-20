@@ -23,6 +23,13 @@
       </a>
     </div>
     {% content_for 'blocks' %}
+    {% if section.settings.product_link_label != blank and closest.product != blank %}
+      <div class="featured-product-details-link">
+        <a href="{{ closest.product.selected_or_first_available_variant.url | default: closest.product.url }}">
+          {{- section.settings.product_link_label | escape -}}
+        </a>
+      </div>
+    {% endif %}
   {% endcapture %}
 
   {% render 'group',
@@ -44,6 +51,20 @@
 
   .view-product-title {
     display: none;
+  }
+
+  .featured-product-details-link {
+    width: 100%;
+    font-size: var(--font-size--sm);
+  }
+
+  .featured-product-details-link a {
+    color: currentcolor;
+    text-underline-offset: 0.2em;
+  }
+
+  .featured-product-details-link a:hover {
+    opacity: var(--opacity-70);
   }
 
   /* Container styles */
