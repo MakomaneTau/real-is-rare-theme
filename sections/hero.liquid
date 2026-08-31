@@ -15,19 +15,21 @@
   # For each media slot, check if the media is not blank and the media type matches the slot
   # Need to check both (1) media picker is not blank AND (2) section.setting.media_type because user can toggle between different media types to display, but choosing "Image" doesn't clear a saved "Video" in the theme editor.
   # The alternate setting (section.settings.image_1 when "Video" is selected) is only visually hidden in theme editor.
-  if section.settings.image_1 != blank and section.settings.media_type_1 == 'image'
+  if section.settings.use_rare_campaign_asset
+    assign media_1 = 'rare_campaign'
+    assign media_count = media_count | plus: 1
+  elsif section.settings.image_1 != blank and section.settings.media_type_1 == 'image'
     assign media_1 = 'image'
     assign media_count = media_count | plus: 1
-  endif
-  if section.settings.video_1 != blank and section.settings.media_type_1 == 'video'
+  elsif section.settings.video_1 != blank and section.settings.media_type_1 == 'video'
     assign media_1 = 'video'
     assign media_count = media_count | plus: 1
   endif
-  if section.settings.image_2 != blank and section.settings.media_type_2 == 'image'
+  if section.settings.use_rare_campaign_asset == false and section.settings.image_2 != blank and section.settings.media_type_2 == 'image'
     assign media_2 = 'image'
     assign media_count = media_count | plus: 1
   endif
-  if section.settings.video_2 != blank and section.settings.media_type_2 == 'video'
+  if section.settings.use_rare_campaign_asset == false and section.settings.video_2 != blank and section.settings.media_type_2 == 'video'
     assign media_2 = 'video'
     assign media_count = media_count | plus: 1
   endif
@@ -52,7 +54,7 @@
       assign media_count_mobile = media_count_mobile | plus: 1
     endif
   endif
-  if media_count > 0 and media_1 != 'image' and media_2 != 'image'
+  if media_count > 0 and media_1 != 'image' and media_1 != 'rare_campaign' and media_2 != 'image'
     assign has_only_video = true
   endif
   if media_count > 0 and media_count_mobile > 0 and media_1_mobile != 'image' and media_2_mobile != 'image'
@@ -115,7 +117,19 @@
 %}
 
 {% capture media_slot_1 %}
-  {%- if media_1 == 'image' and media_1_mobile == 'image' -%}
+  {%- if media_1 == 'rare_campaign' -%}
+    <div class="{{ media_wrapper_desktop_class }}">
+      <img
+        src="{{ 'rare-hero-campaign-v2.png' | asset_url }}"
+        alt=""
+        class="hero__media hero__media--rare-campaign"
+        width="1680"
+        height="945"
+        loading="eager"
+        fetchpriority="{{ fetch_priority }}"
+      >
+    </div>
+  {%- elsif media_1 == 'image' and media_1_mobile == 'image' -%}
     {%- comment -%} Both desktop and mobile are images. Assume similar images, and this is art direction: use picture element. {%- endcomment -%}
     <picture
       data-testid="hero-picture-1"
@@ -475,6 +489,9 @@
   {% if request.visual_preview_mode %}
     data-shopify-visual-preview
   {% endif %}
+  {% if section.settings.use_rare_campaign_asset %}
+    data-rare-campaign
+  {% endif %}
   {% if section.settings.blurred_reflection and has_only_video == false or has_only_video_mobile == false %}
     data-blur-shadow="true"
   {% endif %}
@@ -590,6 +607,33 @@
     z-index: var(--layer-flat);
   }
 
+  .hero[data-rare-campaign] .hero__content-wrapper {
+    max-width: none;
+    padding-inline: clamp(1.5rem, 7vw, 6rem);
+  }
+
+  .hero[data-rare-campaign] .text-block--text_tzGazA {
+    --font-size: clamp(3rem, 5vw, 5rem);
+    --font-weight: 700;
+  }
+
+  .hero[data-rare-campaign] .button-custom--button_shop_now {
+    min-width: 10.5rem;
+    min-height: 3rem;
+    justify-content: space-between;
+    padding-inline: 1.25rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .hero[data-rare-campaign] .hero__content-wrapper {
+      padding-inline: 1.25rem;
+    }
+
+    .hero[data-rare-campaign] .text-block--text_tzGazA {
+      --font-size: clamp(2.75rem, 14vw, 4rem);
+    }
+  }
+
   .hero__content-wrapper .group-block-content {
     position: relative;
   }
@@ -633,6 +677,10 @@
     z-index: var(--layer-base);
   }
 
+  .hero__media--rare-campaign {
+    object-position: center center;
+  }
+
   /* Mobile/Desktop media visibility */
 
   .hero__media-wrapper--mobile {
@@ -644,6 +692,10 @@
   }
 
   @media screen and (max-width: 749px) {
+    .hero__media--rare-campaign {
+      object-position: 72% center;
+    }
+
     .hero__media-wrapper--desktop {
       display: none;
     }
@@ -790,6 +842,12 @@
     {
       "type": "header",
       "content": "t:content.media_1"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_rare_campaign_asset",
+      "label": "Use Rare campaign image",
+      "default": false
     },
     {
       "type": "select",

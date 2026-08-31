@@ -79,6 +79,16 @@
   %}
 </div>
 
+{% stylesheet %}
+  .ui-test-collection-list .resource-list--grid {
+    grid-template-columns: var(--resource-list-columns-mobile);
+
+    @media screen and (min-width: 750px) {
+      grid-template-columns: var(--resource-list-columns);
+    }
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.collection_list",

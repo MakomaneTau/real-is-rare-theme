@@ -150,7 +150,32 @@
   }
 
   .collection-card.collection-card--image-bg .collection-card__content {
-    padding: var(--padding-lg);
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .collection-card--image-bg .collection-card__content > .text-block {
+    flex: 0 0 auto;
+    height: auto;
+    color: #fff;
+    text-shadow: 0 1px 16px rgb(0 0 0 / 45%);
+  }
+
+  .collection-card--image-bg .collection-card__content > .text-block > * {
+    color: #fff;
+    margin: 0;
+  }
+
+  .collection-card--image-bg .collection-card__image .resource-image__image {
+    transition: transform 500ms var(--ease-out-quad);
+  }
+
+  @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .collection-card--image-bg:hover .collection-card__image .resource-image__image,
+    .collection-card--image-bg:focus-within .collection-card__image .resource-image__image {
+      transform: scale(1.025);
+    }
   }
 
   .collection-card:not(.collection-card--image-bg) {
