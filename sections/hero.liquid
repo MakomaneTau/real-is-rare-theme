@@ -119,15 +119,23 @@
 {% capture media_slot_1 %}
   {%- if media_1 == 'rare_campaign' -%}
     <div class="{{ media_wrapper_desktop_class }}">
-      <img
-        src="{{ 'rare-hero-campaign-v2.png' | asset_url }}"
-        alt=""
-        class="hero__media hero__media--rare-campaign"
-        width="1680"
-        height="945"
-        loading="eager"
-        fetchpriority="{{ fetch_priority }}"
-      >
+      <picture class="hero__picture--rare-campaign">
+        <source
+          media="(max-width: 749px)"
+          srcset="{{ 'rare-hero-campaign-mobile-v1.png' | asset_url }}"
+          width="941"
+          height="1672"
+        >
+        <img
+          src="{{ 'rare-hero-campaign-v2.png' | asset_url }}"
+          alt=""
+          class="hero__media hero__media--rare-campaign"
+          width="1680"
+          height="945"
+          loading="eager"
+          fetchpriority="{{ fetch_priority }}"
+        >
+      </picture>
     </div>
   {%- elsif media_1 == 'image' and media_1_mobile == 'image' -%}
     {%- comment -%} Both desktop and mobile are images. Assume similar images, and this is art direction: use picture element. {%- endcomment -%}
@@ -681,6 +689,12 @@
     object-position: center center;
   }
 
+  .hero__picture--rare-campaign {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   /* Mobile/Desktop media visibility */
 
   .hero__media-wrapper--mobile {
@@ -692,8 +706,56 @@
   }
 
   @media screen and (max-width: 749px) {
+    .hero[data-rare-campaign] {
+      width: calc(100% - 1.5rem);
+      max-width: 28rem;
+      min-height: 0;
+      margin: 0.75rem auto;
+    }
+
+    .hero[data-rare-campaign] .hero__container {
+      min-height: 0;
+      max-height: 52.5rem;
+      aspect-ratio: 9 / 18;
+      border-radius: 0.75rem;
+    }
+
+    .hero[data-rare-campaign] .hero__content-wrapper {
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      padding: clamp(3.75rem, 21vw, 5.75rem) 1rem 1.25rem;
+    }
+
+    .hero[data-rare-campaign] .text-block--text_established {
+      --font-size: 0.625rem;
+
+      letter-spacing: 0.04em;
+    }
+
+    .hero[data-rare-campaign] .text-block--text_tzGazA {
+      --font-size: clamp(1.875rem, 9.5vw, 2.625rem);
+      --line-height: 0.92;
+
+      max-width: 13rem;
+    }
+
+    .hero[data-rare-campaign] .text-block--text_statement {
+      --font-size: clamp(0.7rem, 3vw, 0.825rem);
+      --line-height: 1.25;
+
+      max-width: 15rem;
+    }
+
+    .hero[data-rare-campaign] .button-custom--button_shop_now {
+      min-width: 8.25rem;
+      min-height: 2.5rem;
+      padding-inline: 0.875rem;
+      font-size: 0.625rem;
+    }
+
     .hero__media--rare-campaign {
-      object-position: 72% center;
+      object-position: center center;
     }
 
     .hero__media-wrapper--desktop {
