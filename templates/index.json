@@ -395,8 +395,8 @@
                   "type": "product-title",
                   "name": "t:names.title",
                   "settings": {
-                    "width": "fit-content",
-                    "max_width": "normal",
+                    "width": "100%",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "h3",
                     "font": "var(--font-heading--family)",
