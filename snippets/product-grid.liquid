@@ -354,6 +354,27 @@
     }
   }
 
+  @media screen and (max-width: 749px) {
+    .product-grid-container .main-collection-grid {
+      padding-block: 12px 40px;
+      padding-inline: clamp(16px, 4.5vw, 20px);
+    }
+
+    .product-grid-container .product-grid {
+      column-gap: 16px;
+      row-gap: 36px;
+    }
+
+    .product-grid-container .product-grid__card {
+      gap: 14px;
+    }
+
+    .product-grid-container .product-grid .text-block > p[role='heading'] {
+      font-size: clamp(0.875rem, 3.5vw, 0.9375rem);
+      line-height: 1.15;
+    }
+  }
+
   .main-collection-grid__empty {
     padding-block: var(--padding-6xl);
     padding-inline: var(--page-margin);
