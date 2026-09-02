@@ -226,10 +226,10 @@
                       "type": "product-title",
                       "name": "t:names.title",
                       "settings": {
-                        "width": "fit-content",
-                        "max_width": "normal",
+                        "width": "100%",
+                        "max_width": "none",
                         "alignment": "left",
-                        "type_preset": "rte",
+                        "type_preset": "h5",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
