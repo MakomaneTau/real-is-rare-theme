@@ -120,7 +120,8 @@
           add_to_cart_text: add_to_cart_text,
           class: 'quick-add__button quick-add__button--add add-to-cart-button',
           can_add_to_cart: can_add_to_cart,
-          product: product
+          product: product,
+          icon_only: true
         %}
       {%- endform -%}
     </product-form-component>
@@ -133,14 +134,14 @@
       type="button"
       name="add"
       on:click="quick-add-component/handleClick"
+      aria-label="{{ choose_options_text | escape }}"
     >
       <span
         aria-hidden="true"
         class="svg-wrapper add-to-cart-icon"
       >
-        {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+        {{- 'icon-plus.svg' | inline_asset_content -}}
       </span>
-      {{- choose_options_text -}}
     </button>
   {% endif %}
 </quick-add-component>
