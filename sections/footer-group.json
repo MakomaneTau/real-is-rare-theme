@@ -119,8 +119,8 @@
                   "type": "menu",
                   "name": "t:names.menu",
                   "settings": {
-                    "menu": "",
-                    "heading": "About us",
+                    "menu": "footer",
+                    "heading": "Ask",
                     "menu_spacing": 12,
                     "show_as_accordion": false,
                     "accordion_icon": "caret",
