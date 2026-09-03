@@ -140,7 +140,7 @@
                   "type": "menu",
                   "name": "t:names.menu",
                   "settings": {
-                    "menu": "",
+                    "menu": "stay-connected",
                     "heading": "Stay Connected",
                     "menu_spacing": 12,
                     "show_as_accordion": false,
@@ -156,34 +156,12 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
-                },
-                "social_links_kyqL3C": {
-                  "type": "social-links",
-                  "name": "t:names.social_media_links",
-                  "settings": {
-                    "icon_color": "",
-                    "facebook_url": "https://www.facebook.com/",
-                    "instagram_url": "https://www.instagram.com/",
-                    "youtube_url": "https://www.youtube.com/",
-                    "tiktok_url": "https://www.tiktok.com/",
-                    "twitter_url": "https://www.x.com/",
-                    "threads_url": "",
-                    "linkedin_url": "",
-                    "bluesky_url": "",
-                    "snapchat_url": "",
-                    "pinterest_url": "",
-                    "tumblr_url": "",
-                    "vimeo_url": "",
-                    "custom_url": ""
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
                 "menu_zf63TX",
                 "menu_H4cHLN",
-                "menu_HFzgCj",
-                "social_links_kyqL3C"
+                "menu_HFzgCj"
               ]
             },
             "group_gz8NPq": {
