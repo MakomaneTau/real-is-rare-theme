@@ -1,0 +1,23 @@
+{% doc %}
+  Responsive editorial photograph with an optional existing campaign fallback.
+  @param {image} [image] - Desktop photograph
+  @param {image} [mobile_image] - Mobile crop
+  @param {string} [alt] - Photograph description
+  @param {boolean} [use_campaign] - Use the existing campaign artwork when no image is selected
+{% enddoc %}
+{% if image != blank %}
+  {% assign image_description = alt | default: image.alt %}
+  <picture>
+    {% if mobile_image != blank %}
+      <source media="(max-width: 749px)" srcset="{{ mobile_image | image_url: width: 480 }} 480w, {{ mobile_image | image_url: width: 900 }} 900w" sizes="100vw">
+    {% endif %}
+    {{ image | image_url: width: 2000 | image_tag: widths: '400, 600, 900, 1200, 1600, 2000', sizes: '(min-width: 750px) 66vw, 100vw', loading: 'lazy', alt: image_description }}
+  </picture>
+{% elsif use_campaign %}
+  <picture>
+    <source media="(max-width: 749px)" srcset="{{ 'rare-hero-campaign-mobile-v1.png' | asset_url }}">
+    <img src="{{ 'rare-hero-campaign-v2.png' | asset_url }}" width="1680" height="945" loading="lazy" alt="{{ alt | default: 'Real is Rare campaign' | escape }}">
+  </picture>
+{% elsif request.design_mode %}
+  <div class="rare-editorial__empty">Select a photoshoot image in this block.</div>
+{% endif %}

@@ -1,0 +1,24 @@
+{% assign item = closest.product %}
+{% if item.metafields.custom.fit_notes != blank or item.metafields.custom.model_size != blank or item.metafields.custom.materials != blank or item.metafields.custom.size_guide != blank or item.metafields.custom.care_instructions != blank or request.design_mode %}
+  <div class="rare-product-fit" {{ block.shopify_attributes }}>
+    <h3>{{ block.settings.heading | escape }}</h3>
+    {% if item.metafields.custom.fit_notes != blank %}<p>{{ item.metafields.custom.fit_notes.value | escape | newline_to_br }}</p>{% endif %}
+    {% if item.metafields.custom.model_size != blank %}<p>{{ item.metafields.custom.model_size.value | escape }}</p>{% endif %}
+    {% if item.metafields.custom.materials != blank %}<p>{{ item.metafields.custom.materials.value | escape | newline_to_br }}</p>{% endif %}
+    {% if item.metafields.custom.care_instructions != blank %}<details><summary>Care</summary><p>{{ item.metafields.custom.care_instructions.value | escape | newline_to_br }}</p></details>{% endif %}
+    {% if item.metafields.custom.size_guide != blank %}
+      <details><summary>Garment measurements</summary>{{ item.metafields.custom.size_guide | metafield_tag }}</details>
+    {% endif %}
+    {% if request.design_mode %}<small>Set this product’s custom.fit_notes, custom.model_size, custom.materials and custom.size_guide metafields to show its actual details.</small>{% endif %}
+  </div>
+{% endif %}
+{% stylesheet %}
+.rare-product-fit { width: 100%; padding-block: 16px; }
+.rare-product-fit h3 { font-size: 16px; margin: 0 0 12px; }
+.rare-product-fit p { margin: 8px 0; }
+.rare-product-fit summary { cursor: pointer; padding-block: 12px; text-decoration: underline; text-underline-offset: 4px; }
+.rare-product-fit small { display: block; opacity: .7; }
+{% endstylesheet %}
+{% schema %}
+{"name":"Fit and materials","tag":null,"settings":[{"type":"text","id":"heading","label":"Heading","default":"Fit & details"}],"presets":[{"name":"Fit and materials"}]}
+{% endschema %}

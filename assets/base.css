@@ -2000,10 +2000,10 @@ label:has(input[type='checkbox']:disabled) {
   }
 }
 
-/* Slideshow Arrow Hover Animation - must stay in base.css for proper CSS cascade */
+/* Reveal arrows for hover or keyboard focus; a mouse click must not pin them open. */
 
 :not(.media-gallery--carousel)
-  > :is(slideshow-component:hover, slideshow-component:focus-within):not(:has(slideshow-controls:hover))
+  > :is(slideshow-component:hover, slideshow-component:has(:focus-visible)):not(:has(slideshow-controls:hover))
   > slideshow-container
   > slideshow-arrows
   .slideshow-control {

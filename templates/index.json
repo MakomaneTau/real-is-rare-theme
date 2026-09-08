@@ -618,7 +618,8 @@
         "background_color": "",
         "padding-block-start": 40,
         "padding-block-end": 40
-      }
+      },
+      "disabled": true
     },
     "17888280657471e07b": {
       "type": "_blocks",
@@ -703,7 +704,8 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
-      }
+      },
+      "disabled": true
     },
     "product_list_xbHyBT": {
       "type": "product-list",
@@ -746,7 +748,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Rare Collection</h3>",
+                "text": "<h2>Latest drop</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -814,22 +816,34 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "square",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_color": "",
                 "border_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 30,
-                "padding-inline-start": 30,
-                "padding-inline-end": 30
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
+              "blocks": {}
+            },
+            "campaign_title": {
+              "type": "product-title",
+              "settings": {},
+              "blocks": {}
+            },
+            "campaign_price": {
+              "type": "price",
+              "settings": {},
               "blocks": {}
             }
           },
           "block_order": [
-            "product_card_gallery_33jACT"
+            "product_card_gallery_33jACT",
+            "campaign_title",
+            "campaign_price"
           ]
         }
       },
@@ -838,7 +852,7 @@
         "collection": "t-shirts",
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "max_products": 8,
+        "max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
@@ -853,13 +867,69 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "shop_the_look": {
+      "type": "campaign-editorial",
+      "settings": {
+        "layout": "shop",
+        "heading": "Shop the look",
+        "eyebrow": "THE COMPLETE FIT",
+        "intro": "Discover the pieces behind the photograph."
+      },
+      "blocks": {
+        "look_01": {
+          "type": "look",
+          "settings": {
+            "title": "LOOK 01",
+            "shot_brief": "Full-body outfit photograph, preferably vertical 4:5. Keep the jacket, trousers and shoes fully visible. Select the exact products worn in this block."
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "look_01"
+      ]
+    },
+    "campaign_pair": {
+      "type": "campaign-editorial",
+      "settings": {
+        "layout": "pair",
+        "heading": "Nothing but Rare",
+        "eyebrow": "IN THE FRAME",
+        "link": "/collections/all?view=lookbook",
+        "link_label": "View lookbook"
+      },
+      "blocks": {
+        "portrait": {
+          "type": "look",
+          "settings": {
+            "title": "01 / IN MOTION",
+            "shot_brief": "Vertical 4:5 portrait of a model wearing the current drop in a real street location. Leave space around the subject."
+          },
+          "blocks": {}
+        },
+        "detail": {
+          "type": "look",
+          "settings": {
+            "title": "02 / THE DETAILS",
+            "shot_brief": "Vertical 4:5 close-up of the garment on the model: print, embroidery, texture or sleeve. Use lighting and colors that match the portrait."
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "portrait",
+        "detail"
+      ]
     }
   },
   "order": [
     "hero_iyt6zg",
+    "product_list_xbHyBT",
+    "shop_the_look",
+    "campaign_pair",
     "collection_list_kVhprE",
     "featured_product_information_yhipxg",
-    "17888280657471e07b",
-    "product_list_xbHyBT"
+    "17888280657471e07b"
   ]
 }

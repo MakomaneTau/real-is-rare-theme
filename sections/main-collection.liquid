@@ -77,6 +77,17 @@
                 product_view_context: 'collection'
               %}
             </li>
+            {% if section.settings.show_campaign_tile and forloop.index == 8 and paginate.current_page == 1 %}
+              <li class="rare-collection-campaign-tile" data-page="{{ paginate.current_page }}" ref="cards[]">
+                {% assign editorial_image = collection.metafields.custom.editorial_image.value | default: section.settings.campaign_image %}
+                {% if editorial_image != blank %}
+                  {{ editorial_image | image_url: width: 1600 | image_tag: loading: 'lazy', sizes: '100vw', alt: collection.title }}
+                {% else %}
+                  {{ 'hero-apparel-1' | placeholder_svg_tag }}
+                  <p>Landscape photoshoot image: models wearing this collection in motion. Keep the outfit visible and use the same color treatment as the collection banner.</p>
+                {% endif %}
+              </li>
+            {% endif %}
           {% endfor %}
         {% endcapture %}
 
@@ -92,6 +103,14 @@
   </results-list>
 </collection-component>
 
+{% stylesheet %}
+  .product-grid .rare-collection-campaign-tile { grid-column: 1 / -1; min-width: 0; position: relative; background: #171717; color: #f5f5f2; }
+  .rare-collection-campaign-tile img { display: block; width: 100%; max-height: 560px; object-fit: cover; aspect-ratio: 16 / 7; }
+  .rare-collection-campaign-tile svg { display: block; width: 100%; height: 260px; fill: #777; }
+  .rare-collection-campaign-tile p { padding: 0 24px 24px; max-width: 65ch; margin-inline: auto; text-align: center; }
+  .product-grid[product-grid-view='zoom-out'] .rare-collection-campaign-tile { display: none; }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.collection_container",
@@ -99,6 +118,18 @@
     "templates": ["collection"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_campaign_tile",
+      "label": "Show campaign photo after eight products",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "campaign_image",
+      "label": "Campaign grid photograph",
+      "info": "Use custom.editorial_image on a collection for a different photograph per collection."
+    },
     {
       "type": "select",
       "id": "layout_type",

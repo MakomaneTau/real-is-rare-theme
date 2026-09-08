@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.title",
           "settings": {
-            "text": "<h1>Shop All</h1>",
+            "text": "<h1>{{ closest.collection.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -84,7 +84,8 @@
         "border_radius": 0,
         "padding-block-start": 36,
         "padding-block-end": 0
-      }
+      },
+      "disabled": true
     },
     "main": {
       "type": "main-collection",
@@ -471,7 +472,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -510,9 +511,14 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "campaign_intro": {
+      "type": "collection-campaign",
+      "settings": {}
     }
   },
   "order": [
+    "campaign_intro",
     "section",
     "main",
     "product_list_cNqTd7"

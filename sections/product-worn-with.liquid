@@ -1,0 +1,32 @@
+{% assign worn_products = product.metafields.custom.worn_with.value %}
+{% assign campaign_image = product.metafields.custom.campaign_image.value %}
+{% if worn_products != blank or campaign_image != blank or section.settings.show_placeholder or request.design_mode %}
+  {{ 'rare-editorial.css' | asset_url | stylesheet_tag }}
+  <section class="rare-editorial rare-editorial--shop" aria-labelledby="WornWith-{{ section.id }}">
+    <div class="rare-editorial__heading"><h2 class="rare-editorial__title" id="WornWith-{{ section.id }}">Worn with</h2></div>
+    <div class="rare-editorial__look">
+      <div class="rare-editorial__photo">
+        {% if campaign_image != blank %}
+          {% render 'campaign-image', image: campaign_image, alt: product.title %}
+        {% else %}
+          <div class="rare-editorial__placeholder">{{ 'hero-apparel-1' | placeholder_svg_tag }}<p>Full-body styled photograph featuring this product with the other pieces in the outfit.</p></div>
+        {% endif %}
+      </div>
+      <div class="rare-editorial__products">
+        {% if worn_products == blank and section.settings.show_placeholder %}{% render 'outfit-product-placeholders' %}{% endif %}
+        {% for item in worn_products %}
+          {% unless item.id == product.id %}
+            <a class="rare-editorial__product" href="{{ item.url }}">
+              {% if item.featured_image %}{{ item.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: item.title }}{% endif %}
+              <span>{{ item.title | escape }}<span class="rare-editorial__product-price">{{ item.price | money }}</span></span>
+            </a>
+          {% endunless %}
+        {% endfor %}
+        {% if request.design_mode and worn_products == blank %}<p>Select the outfit’s products in the custom.worn_with product metafield, and its photograph in custom.campaign_image.</p>{% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{"name":"Worn with","enabled_on":{"templates":["product"]},"settings":[{"type":"checkbox","id":"show_placeholder","label":"Show image placeholder until outfit is configured","default":true}],"presets":[{"name":"Worn with"}]}
+{% endschema %}
