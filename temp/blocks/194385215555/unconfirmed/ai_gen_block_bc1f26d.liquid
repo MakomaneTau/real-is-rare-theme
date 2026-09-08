@@ -1,6 +1,423 @@
+{% doc %}
+  @prompt
+    Create a countdown banner at the top of the page for a new item drop. The banner should display a countdown timer showing days, hours, minutes, and seconds until the drop date. Include customizable text like "New Drop Coming Soon" or a product name, a configurable target date/time, and styling options for background color, text color, and font size. The banner should be eye-catching and match the store's aesthetic.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-countdown-banner-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-countdown-banner__content-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: {{ block.settings.spacing }}px;
+  }
+
+  .ai-countdown-banner__text-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: {{ block.settings.text_size }}px;
+    margin: 0;
+    text-transform: {{ block.settings.text_transform }};
+    letter-spacing: {{ block.settings.letter_spacing }}px;
+  }
+
+  .ai-countdown-banner__timer-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.timer_spacing }}px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .ai-countdown-banner__segment-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .ai-countdown-banner__value-{{ ai_gen_id }} {
+    font-family: {{ block.settings.timer_font.family }}, {{ block.settings.timer_font.fallback_families }};
+    font-weight: {{ block.settings.timer_font.weight }};
+    font-size: {{ block.settings.timer_size }}px;
+    line-height: 1;
+    color: {{ block.settings.timer_color }};
+    min-width: 40px;
+  }
+
+  .ai-countdown-banner__label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-countdown-banner__separator-{{ ai_gen_id }} {
+    font-size: {{ block.settings.timer_size }}px;
+    color: {{ block.settings.timer_color }};
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .ai-countdown-banner__expired-{{ ai_gen_id }} {
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    font-size: {{ block.settings.text_size }}px;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-countdown-banner__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.8 }}px;
+    }
+
+    .ai-countdown-banner__value-{{ ai_gen_id }} {
+      font-size: {{ block.settings.timer_size | times: 0.7 }}px;
+      min-width: 30px;
+    }
+
+    .ai-countdown-banner__label-{{ ai_gen_id }} {
+      font-size: {{ block.settings.label_size | times: 0.8 }}px;
+    }
+
+    .ai-countdown-banner__separator-{{ ai_gen_id }} {
+      font-size: {{ block.settings.timer_size | times: 0.7 }}px;
+    }
+
+    .ai-countdown-banner__timer-{{ ai_gen_id }} {
+      gap: {{ block.settings.timer_spacing | times: 0.7 }}px;
+    }
+  }
+{% endstyle %}
+
+<countdown-banner-{{ ai_gen_id }}
+  class="ai-countdown-banner-{{ ai_gen_id }}"
+  data-target-date="{{ block.settings.target_date }}"
+  data-target-time="{{ block.settings.target_time }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-countdown-banner__content-{{ ai_gen_id }}">
+    {% if block.settings.banner_text != blank %}
+      <h2 class="ai-countdown-banner__text-{{ ai_gen_id }}">{{ block.settings.banner_text }}</h2>
+    {% endif %}
+
+    <div class="ai-countdown-banner__timer-{{ ai_gen_id }}" data-countdown-timer>
+      <div class="ai-countdown-banner__segment-{{ ai_gen_id }}">
+        <span class="ai-countdown-banner__value-{{ ai_gen_id }}" data-days>00</span>
+        <span class="ai-countdown-banner__label-{{ ai_gen_id }}">Days</span>
+      </div>
+
+      {% if block.settings.show_separator %}
+        <span class="ai-countdown-banner__separator-{{ ai_gen_id }}">:</span>
+      {% endif %}
+
+      <div class="ai-countdown-banner__segment-{{ ai_gen_id }}">
+        <span class="ai-countdown-banner__value-{{ ai_gen_id }}" data-hours>00</span>
+        <span class="ai-countdown-banner__label-{{ ai_gen_id }}">Hours</span>
+      </div>
+
+      {% if block.settings.show_separator %}
+        <span class="ai-countdown-banner__separator-{{ ai_gen_id }}">:</span>
+      {% endif %}
+
+      <div class="ai-countdown-banner__segment-{{ ai_gen_id }}">
+        <span class="ai-countdown-banner__value-{{ ai_gen_id }}" data-minutes>00</span>
+        <span class="ai-countdown-banner__label-{{ ai_gen_id }}">Minutes</span>
+      </div>
+
+      {% if block.settings.show_separator %}
+        <span class="ai-countdown-banner__separator-{{ ai_gen_id }}">:</span>
+      {% endif %}
+
+      <div class="ai-countdown-banner__segment-{{ ai_gen_id }}">
+        <span class="ai-countdown-banner__value-{{ ai_gen_id }}" data-seconds>00</span>
+        <span class="ai-countdown-banner__label-{{ ai_gen_id }}">Seconds</span>
+      </div>
+    </div>
+
+    <div class="ai-countdown-banner__expired-{{ ai_gen_id }}" data-expired-message style="display: none;">
+      {{ block.settings.expired_message }}
+    </div>
+  </div>
+</countdown-banner-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CountdownBanner{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.targetDate = null;
+        this.interval = null;
+      }
+
+      connectedCallback() {
+        const dateString = this.getAttribute('data-target-date');
+        const timeString = this.getAttribute('data-target-time');
+
+        if (!dateString || !timeString) {
+          this.showExpired();
+          return;
+        }
+
+        this.targetDate = new Date(dateString + 'T' + timeString);
+
+        if (isNaN(this.targetDate.getTime())) {
+          this.showExpired();
+          return;
+        }
+
+        this.daysEl = this.querySelector('[data-days]');
+        this.hoursEl = this.querySelector('[data-hours]');
+        this.minutesEl = this.querySelector('[data-minutes]');
+        this.secondsEl = this.querySelector('[data-seconds]');
+        this.timerEl = this.querySelector('[data-countdown-timer]');
+        this.expiredEl = this.querySelector('[data-expired-message]');
+
+        this.updateCountdown();
+        this.interval = setInterval(() => this.updateCountdown(), 1000);
+      }
+
+      disconnectedCallback() {
+        if (this.interval) {
+          clearInterval(this.interval);
+        }
+      }
+
+      updateCountdown() {
+        const now = new Date().getTime();
+        const distance = this.targetDate.getTime() - now;
+
+        if (distance < 0) {
+          this.showExpired();
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        this.daysEl.textContent = String(days).padStart(2, '0');
+        this.hoursEl.textContent = String(hours).padStart(2, '0');
+        this.minutesEl.textContent = String(minutes).padStart(2, '0');
+        this.secondsEl.textContent = String(seconds).padStart(2, '0');
+      }
+
+      showExpired() {
+        if (this.interval) {
+          clearInterval(this.interval);
+        }
+        if (this.timerEl) {
+          this.timerEl.style.display = 'none';
+        }
+        if (this.expiredEl) {
+          this.expiredEl.style.display = 'block';
+        }
+      }
+    }
+
+    customElements.define('countdown-banner-{{ ai_gen_id }}', CountdownBanner{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Countdown banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "banner_text",
+      "label": "Banner text",
+      "default": "New Drop Coming Soon"
+    },
+    {
+      "type": "text",
+      "id": "target_date",
+      "label": "Target date",
+      "info": "Format: YYYY-MM-DD (e.g., 2026-12-31)",
+      "default": "2026-12-31"
+    },
+    {
+      "type": "text",
+      "id": "target_time",
+      "label": "Target time",
+      "info": "Format: HH:MM (24-hour, e.g., 14:30)",
+      "default": "23:59"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "expired_message",
+      "label": "Expired message",
+      "default": "The drop is live!"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#070707"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "color",
+      "id": "timer_color",
+      "label": "Timer numbers",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Banner text font",
+      "default": "playfair_display_n4"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Banner text size",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Banner text case",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "font_picker",
+      "id": "timer_font",
+      "label": "Timer font",
+      "default": "red_hat_text_n4"
+    },
+    {
+      "type": "range",
+      "id": "timer_size",
+      "label": "Timer size",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label size",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Text to timer spacing",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "timer_spacing",
+      "label": "Timer segment spacing",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_separator",
+      "label": "Show colon separator",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown banner"
+    }
+  ]
+}
 {% endschema %}
