@@ -620,6 +620,91 @@
         "padding-block-end": 40
       }
     },
+    "17888280657471e07b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_905a047_86WQww": {
+          "type": "ai_gen_block_905a047",
+          "settings": {
+            "layout": "row",
+            "desktop_width_percent": 100,
+            "padding": 40,
+            "gap": 40,
+            "content_gap": 16,
+            "background_color": "#f5f5f2",
+            "poster_image": "shopify://shop_images/imgi_51_584004606_18064968074438763_1458976278746728954_n.webp",
+            "image_aspect_ratio": "3/4",
+            "show_badge": true,
+            "badge_text": "Limited Edition",
+            "badge_position_x": 20,
+            "badge_position_y": 20,
+            "badge_font_size": 11,
+            "badge_border_radius": 0,
+            "badge_background": "#070707",
+            "badge_text_color": "#f5f5f2",
+            "text_alignment": "left",
+            "eyebrow_text": "Exclusive Collection",
+            "eyebrow_size": 12,
+            "eyebrow_color": "#a3a3a3",
+            "title": "Rare Moments Collection",
+            "title_size": 48,
+            "title_color": "#070707",
+            "description": "<p>Each piece is carefully crafted and numbered, making this a truly unique addition to your collection.</p>",
+            "description_size": 14,
+            "description_color": "#070707",
+            "show_edition_number": false,
+            "edition_text": "Edition",
+            "current_edition": "42",
+            "total_editions": "100",
+            "edition_size": 16,
+            "edition_color": "#070707",
+            "button_text": "View Exclusives",
+            "button_link": "shopify://collections/exclusives",
+            "button_font_size": 14,
+            "button_border_radius": 0,
+            "button_border_width": 1,
+            "button_background": "#070707",
+            "button_text_color": "#f5f5f2",
+            "button_border_color": "#070707",
+            "button_hover_background": "#262626",
+            "button_hover_text_color": "#f5f5f2",
+            "button_hover_border_color": "#262626"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_905a047_86WQww"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "product_list_xbHyBT": {
       "type": "product-list",
       "blocks": {
@@ -768,98 +853,13 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "17888280657471e07b": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_905a047_86WQww": {
-          "type": "ai_gen_block_905a047",
-          "settings": {
-            "layout": "row",
-            "desktop_width_percent": 100,
-            "padding": 40,
-            "gap": 40,
-            "content_gap": 16,
-            "background_color": "#f5f5f2",
-            "poster_image": "shopify://shop_images/imgi_51_584004606_18064968074438763_1458976278746728954_n.webp",
-            "image_aspect_ratio": "3/4",
-            "show_badge": true,
-            "badge_text": "Limited Edition",
-            "badge_position_x": 20,
-            "badge_position_y": 20,
-            "badge_font_size": 11,
-            "badge_border_radius": 0,
-            "badge_background": "#070707",
-            "badge_text_color": "#f5f5f2",
-            "text_alignment": "left",
-            "eyebrow_text": "Exclusive Collection",
-            "eyebrow_size": 12,
-            "eyebrow_color": "#a3a3a3",
-            "title": "Rare Moments Collection",
-            "title_size": 48,
-            "title_color": "#070707",
-            "description": "<p>Each piece is carefully crafted and numbered, making this a truly unique addition to your collection.</p>",
-            "description_size": 14,
-            "description_color": "#070707",
-            "show_edition_number": false,
-            "edition_text": "Edition",
-            "current_edition": "42",
-            "total_editions": "100",
-            "edition_size": 16,
-            "edition_color": "#070707",
-            "button_text": "View Exclusives",
-            "button_link": "shopify://collections/exclusives",
-            "button_font_size": 14,
-            "button_border_radius": 0,
-            "button_border_width": 1,
-            "button_background": "#070707",
-            "button_text_color": "#f5f5f2",
-            "button_border_color": "#070707",
-            "button_hover_background": "#262626",
-            "button_hover_text_color": "#f5f5f2",
-            "button_hover_border_color": "#262626"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_905a047_86WQww"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
     }
   },
   "order": [
     "hero_iyt6zg",
     "collection_list_kVhprE",
     "featured_product_information_yhipxg",
-    "product_list_xbHyBT",
-    "17888280657471e07b"
+    "17888280657471e07b",
+    "product_list_xbHyBT"
   ]
 }
