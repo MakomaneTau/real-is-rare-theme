@@ -801,7 +801,7 @@
             "description": "<p>Each piece is carefully crafted and numbered, making this a truly unique addition to your collection.</p>",
             "description_size": 14,
             "description_color": "#070707",
-            "show_edition_number": true,
+            "show_edition_number": false,
             "edition_text": "Edition",
             "current_edition": "42",
             "total_editions": "100",
