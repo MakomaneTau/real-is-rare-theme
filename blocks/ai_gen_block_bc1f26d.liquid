@@ -8,101 +8,110 @@
   .ai-countdown-banner-{{ ai_gen_id }} {
     display: block;
     width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    margin: 0;
+
     background-color: {{ block.settings.background_color }};
     color: {{ block.settings.text_color }};
-    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    padding: {{ block.settings.padding_vertical }}px
+             {{ block.settings.padding_horizontal }}px;
+
     text-align: center;
     position: relative;
     overflow: hidden;
   }
 
-  .ai-countdown-banner__content-{{ ai_gen_id }} {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: {{ block.settings.spacing }}px;
-  }
+    .ai-countdown-banner__content-{{ ai_gen_id }} {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: {{ block.settings.spacing }}px;
+    }
 
-  .ai-countdown-banner__text-{{ ai_gen_id }} {
-    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
-    font-weight: {{ block.settings.heading_font.weight }};
-    font-size: {{ block.settings.text_size }}px;
-    margin: 0;
-    text-transform: {{ block.settings.text_transform }};
-    letter-spacing: {{ block.settings.letter_spacing }}px;
-  }
-
-  .ai-countdown-banner__timer-{{ ai_gen_id }} {
-    display: flex;
-    gap: {{ block.settings.timer_spacing }}px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .ai-countdown-banner__segment-{{ ai_gen_id }} {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .ai-countdown-banner__value-{{ ai_gen_id }} {
-    font-family: {{ block.settings.timer_font.family }}, {{ block.settings.timer_font.fallback_families }};
-    font-weight: {{ block.settings.timer_font.weight }};
-    font-size: {{ block.settings.timer_size }}px;
-    line-height: 1;
-    color: {{ block.settings.timer_color }};
-    min-width: 40px;
-  }
-
-  .ai-countdown-banner__label-{{ ai_gen_id }} {
-    font-size: {{ block.settings.label_size }}px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.8;
-    color: {{ block.settings.text_color }};
-  }
-
-  .ai-countdown-banner__separator-{{ ai_gen_id }} {
-    font-size: {{ block.settings.timer_size }}px;
-    color: {{ block.settings.timer_color }};
-    opacity: 0.5;
-    line-height: 1;
-    margin-bottom: 20px;
-  }
-
-  .ai-countdown-banner__expired-{{ ai_gen_id }} {
-    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
-    font-weight: {{ block.settings.heading_font.weight }};
-    font-size: {{ block.settings.text_size }}px;
-    margin: 0;
-  }
-
-  @media screen and (max-width: 749px) {
     .ai-countdown-banner__text-{{ ai_gen_id }} {
-      font-size: {{ block.settings.text_size | times: 0.8 }}px;
-    }
-
-    .ai-countdown-banner__value-{{ ai_gen_id }} {
-      font-size: {{ block.settings.timer_size | times: 0.7 }}px;
-      min-width: 30px;
-    }
-
-    .ai-countdown-banner__label-{{ ai_gen_id }} {
-      font-size: {{ block.settings.label_size | times: 0.8 }}px;
-    }
-
-    .ai-countdown-banner__separator-{{ ai_gen_id }} {
-      font-size: {{ block.settings.timer_size | times: 0.7 }}px;
+      font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+      font-weight: {{ block.settings.heading_font.weight }};
+      font-size: {{ block.settings.text_size | divided_by: 1.2 }}px;
+      margin: 0;
+      text-transform: {{ block.settings.text_transform }};
+      letter-spacing: {{ block.settings.letter_spacing }}px;
     }
 
     .ai-countdown-banner__timer-{{ ai_gen_id }} {
-      gap: {{ block.settings.timer_spacing | times: 0.7 }}px;
+      display: flex;
+      gap: {{ block.settings.timer_spacing }}px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-shrink: 0;
     }
-  }
+
+    .ai-countdown-banner__segment-{{ ai_gen_id }} {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ai-countdown-banner__value-{{ ai_gen_id }} {
+      font-family: {{ block.settings.timer_font.family }}, {{ block.settings.timer_font.fallback_families }};
+      font-weight: {{ block.settings.timer_font.weight }};
+      font-size: {{ block.settings.timer_size | times: 0.8 }}px;
+      line-height: 1;
+      color: {{ block.settings.timer_color }};
+      min-width: 24px;
+    }
+
+    .ai-countdown-banner__label-{{ ai_gen_id }} {
+      font-size: {{ block.settings.label_size }}px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      color: {{ block.settings.text_color }};
+    }
+
+    .ai-countdown-banner__separator-{{ ai_gen_id }} {
+      font-size: {{ block.settings.timer_size | times: 0.8 }}px;
+      color: {{ block.settings.timer_color }};
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: calc({{ block.settings.label_size }}px * 1.5 + 4px);
+    }
+
+    .ai-countdown-banner__expired-{{ ai_gen_id }} {
+      font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+      font-weight: {{ block.settings.heading_font.weight }};
+      font-size: {{ block.settings.text_size | divided_by: 1.2 }}px;
+      margin: 0;
+    }
+
+    @media screen and (max-width: 749px) {
+      .ai-countdown-banner__text-{{ ai_gen_id }} {
+        font-size: {{ block.settings.text_size | divided_by: 1.2 | times: 0.8 | at_least: 9 }}px;
+      }
+
+      .ai-countdown-banner__value-{{ ai_gen_id }} {
+        font-size: {{ block.settings.timer_size | times: 0.56 }}px;
+        min-width: 20px;
+      }
+
+      .ai-countdown-banner__label-{{ ai_gen_id }} {
+        font-size: {{ block.settings.label_size | times: 0.8 | at_least: 8 }}px;
+      }
+
+      .ai-countdown-banner__separator-{{ ai_gen_id }} {
+        font-size: {{ block.settings.timer_size | times: 0.56 }}px;
+        margin-bottom: calc({{ block.settings.label_size | times: 0.8 | at_least: 8 }}px * 1.5 + 4px);
+      }
+
+      .ai-countdown-banner__timer-{{ ai_gen_id }} {
+        gap: {{ block.settings.timer_spacing | times: 0.7 }}px;
+      }
+    }
 {% endstyle %}
 
 <countdown-banner-{{ ai_gen_id }}

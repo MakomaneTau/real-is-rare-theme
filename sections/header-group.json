@@ -11,6 +11,40 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
+    "countdown_banner": {
+      "type": "countdown-banner",
+      "blocks": {
+        "ai_gen_block_bc1f26d_wd397y": {
+          "type": "ai_gen_block_bc1f26d",
+          "settings": {
+            "banner_text": "New Drop Coming Soon",
+            "target_date": "2026-10-01",
+            "target_time": "23:59",
+            "expired_message": "The drop is live!",
+            "background_color": "#070707",
+            "text_color": "#f5f5f2",
+            "timer_color": "#f5f5f2",
+            "heading_font": "playfair_display_n4",
+            "text_size": 12,
+            "text_transform": "uppercase",
+            "letter_spacing": 1,
+            "timer_font": "red_hat_text_n4",
+            "timer_size": 20,
+            "label_size": 9,
+            "padding_vertical": 10,
+            "padding_horizontal": 10,
+            "spacing": 12,
+            "timer_spacing": 8,
+            "show_separator": true
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_bc1f26d_wd397y"
+      ],
+      "settings": {}
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -78,7 +112,7 @@
         "actions_text_case": "none",
         "background_color_top": "{{ settings.color_palette.background }}",
         "text_color_top": "",
-        "background_color_bottom": "",
+        "background_color_bottom": "{{ settings.color_palette.background }}",
         "text_color_bottom": "",
         "bubble_style": "default",
         "bubble_background_color": "",
@@ -96,6 +130,7 @@
     }
   },
   "order": [
+    "countdown_banner",
     "header_section"
   ]
 }
