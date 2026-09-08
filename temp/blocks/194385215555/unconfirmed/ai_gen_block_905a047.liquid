@@ -1,6 +1,649 @@
+{% doc %}
+  @prompt
+    Limited edition poster 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-limited-poster-{{ ai_gen_id }} {
+    display: block;
+    position: relative;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding }}px;
+    overflow: hidden;
+  }
+
+  .ai-limited-poster-container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: {{ block.settings.layout }};
+    gap: {{ block.settings.gap }}px;
+    align-items: center;
+  }
+
+  .ai-limited-poster-image-wrapper-{{ ai_gen_id }} {
+    flex: 1;
+    position: relative;
+  }
+
+  .ai-limited-poster-image-placeholder-{{ ai_gen_id }} {
+    background-color: #f4f4f4;
+    width: 100%;
+    aspect-ratio: {{ block.settings.image_aspect_ratio }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-limited-poster-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-limited-poster-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-limited-poster-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-limited-poster-badge-{{ ai_gen_id }} {
+    position: absolute;
+    top: {{ block.settings.badge_position_y }}px;
+    left: {{ block.settings.badge_position_x }}px;
+    background-color: {{ block.settings.badge_background }};
+    color: {{ block.settings.badge_text_color }};
+    padding: 8px 16px;
+    font-size: {{ block.settings.badge_font_size }}px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: {{ block.settings.badge_border_radius }}px;
+    z-index: 2;
+  }
+
+  .ai-limited-poster-content-{{ ai_gen_id }} {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.content_gap }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-limited-poster-eyebrow-{{ ai_gen_id }} {
+    font-size: {{ block.settings.eyebrow_size }}px;
+    color: {{ block.settings.eyebrow_color }};
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .ai-limited-poster-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+
+  .ai-limited-poster-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.description_color }};
+    line-height: 1.6;
+  }
+
+  .ai-limited-poster-edition-info-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-limited-poster-edition-number-{{ ai_gen_id }} {
+    font-size: {{ block.settings.edition_size }}px;
+    color: {{ block.settings.edition_color }};
+    font-weight: 600;
+    font-family: monospace;
+  }
+
+  .ai-limited-poster-cta-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    transition: all 0.3s ease;
+    border: {{ block.settings.button_border_width }}px solid {{ block.settings.button_border_color }};
+    {% if block.settings.text_alignment == 'center' %}
+      align-self: center;
+    {% elsif block.settings.text_alignment == 'right' %}
+      align-self: flex-end;
+    {% else %}
+      align-self: flex-start;
+    {% endif %}
+  }
+
+  .ai-limited-poster-cta-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+    color: {{ block.settings.button_hover_text_color }};
+    border-color: {{ block.settings.button_hover_border_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-limited-poster-container-{{ ai_gen_id }} {
+      flex-direction: column;
+    }
+
+    .ai-limited-poster-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.6 }}px;
+    }
+
+    .ai-limited-poster-content-{{ ai_gen_id }} {
+      text-align: center;
+    }
+
+    .ai-limited-poster-cta-{{ ai_gen_id }} {
+      align-self: center;
+    }
+  }
+{% endstyle %}
+
+<limited-edition-poster-{{ ai_gen_id }} class="ai-limited-poster-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-limited-poster-container-{{ ai_gen_id }}">
+    <div class="ai-limited-poster-image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.poster_image %}
+        <img
+          src="{{ block.settings.poster_image | image_url: width: 1200 }}"
+          alt="{{ block.settings.poster_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.poster_image.width }}"
+          height="{{ block.settings.poster_image.height }}"
+          class="ai-limited-poster-image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-limited-poster-image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+          <div class="ai-limited-poster-empty-state-{{ ai_gen_id }}">
+            Next, add a poster image
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_badge %}
+        <div class="ai-limited-poster-badge-{{ ai_gen_id }}">
+          {{ block.settings.badge_text }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-limited-poster-content-{{ ai_gen_id }}">
+      {% if block.settings.eyebrow_text != blank %}
+        <p class="ai-limited-poster-eyebrow-{{ ai_gen_id }}">{{ block.settings.eyebrow_text }}</p>
+      {% endif %}
+
+      {% if block.settings.title != blank %}
+        <h2 class="ai-limited-poster-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <div class="ai-limited-poster-description-{{ ai_gen_id }}">
+          {{ block.settings.description }}
+        </div>
+      {% endif %}
+
+      <div class="ai-limited-poster-edition-info-{{ ai_gen_id }}">
+        {% if block.settings.show_edition_number %}
+          <div class="ai-limited-poster-edition-number-{{ ai_gen_id }}">
+            {{ block.settings.edition_text }} {{ block.settings.current_edition }}/{{ block.settings.total_editions }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if block.settings.button_link != blank and block.settings.button_text != blank %}
+        <a href="{{ block.settings.button_link }}" class="ai-limited-poster-cta-{{ ai_gen_id }}">
+          {{ block.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</limited-edition-poster-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class LimitedEditionPoster{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupAccessibility();
+      }
+
+      setupAccessibility() {
+        const img = this.querySelector('.ai-limited-poster-image-{{ ai_gen_id }}');
+        if (img && !img.alt) {
+          img.setAttribute('alt', 'Limited edition poster');
+        }
+      }
+    }
+
+    customElements.define('limited-edition-poster-{{ ai_gen_id }}', LimitedEditionPoster{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Limited edition poster",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "row",
+          "label": "Image left"
+        },
+        {
+          "value": "row-reverse",
+          "label": "Image right"
+        }
+      ],
+      "default": "row"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Space between image and content",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Space between text elements",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_image",
+      "label": "Poster image"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        {
+          "value": "3/4",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square"
+        },
+        {
+          "value": "16/9",
+          "label": "Wide (16:9)"
+        }
+      ],
+      "default": "3/4"
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Limited Edition"
+    },
+    {
+      "type": "range",
+      "id": "badge_position_x",
+      "label": "Badge horizontal position",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "badge_position_y",
+      "label": "Badge vertical position",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "badge_font_size",
+      "label": "Badge font size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "badge_border_radius",
+      "label": "Badge border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Badge background",
+      "default": "#070707"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow text",
+      "default": "Exclusive Collection"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#a3a3a3"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Rare Moments Collection"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#070707"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Each piece is carefully crafted and numbered, making this a truly unique addition to your collection.</p>"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#070707"
+    },
+    {
+      "type": "header",
+      "content": "Edition details"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_edition_number",
+      "label": "Show edition number",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "edition_text",
+      "label": "Edition label",
+      "default": "Edition"
+    },
+    {
+      "type": "text",
+      "id": "current_edition",
+      "label": "Current edition number",
+      "default": "42"
+    },
+    {
+      "type": "text",
+      "id": "total_editions",
+      "label": "Total editions",
+      "default": "100"
+    },
+    {
+      "type": "range",
+      "id": "edition_size",
+      "label": "Edition font size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "edition_color",
+      "label": "Edition color",
+      "default": "#070707"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "View Details"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Button border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "label": "Button border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#070707"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border",
+      "default": "#070707"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button hover background",
+      "default": "#262626"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button hover border",
+      "default": "#262626"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Limited edition poster"
+    }
+  ]
+}
 {% endschema %}
