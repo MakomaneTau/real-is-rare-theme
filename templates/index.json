@@ -149,6 +149,271 @@
         "padding-block-end": 0
       }
     },
+    "product_list_xbHyBT": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_eiV4wP": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h2>Latest drop</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_Jt3YTn": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "button-unstyled",
+                "custom_button_background": "{{ settings.color_palette.foreground }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_eiV4wP",
+            "product_list_button_Jt3YTn"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_33jACT": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "campaign_title": {
+              "type": "product-title",
+              "settings": {
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "campaign_price": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_33jACT",
+            "campaign_title",
+            "campaign_price"
+          ]
+        }
+      },
+      "name": "t:names.products_grid",
+      "settings": {
+        "collection": "t-shirts",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "shop_the_look": {
+      "type": "campaign-editorial",
+      "blocks": {
+        "look_01": {
+          "type": "look",
+          "settings": {
+            "alt": "",
+            "title": "LOOK 01",
+            "shot_brief": "Full-body outfit photograph, preferably vertical 4:5. Keep the jacket, trousers and shoes fully visible. Select the exact products worn in this block.",
+            "products": [],
+            "link": "",
+            "link_label": "Shop this look"
+          }
+        }
+      },
+      "block_order": [
+        "look_01"
+      ],
+      "settings": {
+        "layout": "shop",
+        "page_heading": false,
+        "eyebrow": "THE COMPLETE FIT",
+        "heading": "Shop the look",
+        "intro": "Discover the pieces behind the photograph.",
+        "link_label": "Explore the collection",
+        "link": ""
+      }
+    },
+    "campaign_pair": {
+      "type": "campaign-editorial",
+      "blocks": {
+        "portrait": {
+          "type": "look",
+          "settings": {
+            "alt": "",
+            "title": "01 / IN MOTION",
+            "shot_brief": "Vertical 4:5 portrait of a model wearing the current drop in a real street location. Leave space around the subject.",
+            "products": [],
+            "link": "",
+            "link_label": "Shop this look"
+          }
+        },
+        "detail": {
+          "type": "look",
+          "settings": {
+            "alt": "",
+            "title": "02 / THE DETAILS",
+            "shot_brief": "Vertical 4:5 close-up of the garment on the model: print, embroidery, texture or sleeve. Use lighting and colors that match the portrait.",
+            "products": [],
+            "link": "",
+            "link_label": "Shop this look"
+          }
+        }
+      },
+      "block_order": [
+        "portrait",
+        "detail"
+      ],
+      "settings": {
+        "layout": "pair",
+        "page_heading": false,
+        "eyebrow": "IN THE FRAME",
+        "heading": "Nothing but Rare",
+        "intro": "",
+        "link_label": "View lookbook",
+        "link": "/collections/all?view=lookbook"
+      }
+    },
     "collection_list_kVhprE": {
       "type": "collection-list",
       "blocks": {
@@ -618,8 +883,7 @@
         "background_color": "",
         "padding-block-start": 40,
         "padding-block-end": 40
-      },
-      "disabled": true
+      }
     },
     "17888280657471e07b": {
       "type": "_blocks",
@@ -704,232 +968,16 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
-      },
-      "disabled": true
-    },
-    "product_list_xbHyBT": {
-      "type": "product-list",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_eiV4wP": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h2>Latest drop</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_Jt3YTn": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "button-unstyled",
-                "custom_button_background": "{{ settings.color_palette.foreground }}",
-                "custom_button_text": "{{ settings.color_palette.background }}",
-                "custom_button_border": "{{ settings.color_palette.background }}",
-                "link_text_color": "",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_eiV4wP",
-            "product_list_button_Jt3YTn"
-          ]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 4,
-            "background_color": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_33jACT": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "portrait",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "campaign_title": {
-              "type": "product-title",
-              "settings": {},
-              "blocks": {}
-            },
-            "campaign_price": {
-              "type": "price",
-              "settings": {},
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_33jACT",
-            "campaign_title",
-            "campaign_price"
-          ]
-        }
-      },
-      "name": "t:names.products_grid",
-      "settings": {
-        "collection": "t-shirts",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 4,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "background_color": "",
-        "padding-block-start": 48,
-        "padding-block-end": 48
       }
-    },
-    "shop_the_look": {
-      "type": "campaign-editorial",
-      "settings": {
-        "layout": "shop",
-        "heading": "Shop the look",
-        "eyebrow": "THE COMPLETE FIT",
-        "intro": "Discover the pieces behind the photograph."
-      },
-      "blocks": {
-        "look_01": {
-          "type": "look",
-          "settings": {
-            "title": "LOOK 01",
-            "shot_brief": "Full-body outfit photograph, preferably vertical 4:5. Keep the jacket, trousers and shoes fully visible. Select the exact products worn in this block."
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "look_01"
-      ]
-    },
-    "campaign_pair": {
-      "type": "campaign-editorial",
-      "settings": {
-        "layout": "pair",
-        "heading": "Nothing but Rare",
-        "eyebrow": "IN THE FRAME",
-        "link": "/collections/all?view=lookbook",
-        "link_label": "View lookbook"
-      },
-      "blocks": {
-        "portrait": {
-          "type": "look",
-          "settings": {
-            "title": "01 / IN MOTION",
-            "shot_brief": "Vertical 4:5 portrait of a model wearing the current drop in a real street location. Leave space around the subject."
-          },
-          "blocks": {}
-        },
-        "detail": {
-          "type": "look",
-          "settings": {
-            "title": "02 / THE DETAILS",
-            "shot_brief": "Vertical 4:5 close-up of the garment on the model: print, embroidery, texture or sleeve. Use lighting and colors that match the portrait."
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "portrait",
-        "detail"
-      ]
     }
   },
   "order": [
     "hero_iyt6zg",
-    "product_list_xbHyBT",
-    "shop_the_look",
-    "campaign_pair",
     "collection_list_kVhprE",
+    "product_list_xbHyBT",
+    "17888280657471e07b",
     "featured_product_information_yhipxg",
-    "17888280657471e07b"
+    "campaign_pair",
+    "shop_the_look"
   ]
 }
