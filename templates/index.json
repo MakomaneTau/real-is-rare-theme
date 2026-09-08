@@ -633,7 +633,7 @@
             "content_gap": 16,
             "background_color": "{{ settings.color_palette.background }}",
             "poster_image": "shopify://shop_images/imgi_51_584004606_18064968074438763_1458976278746728954_n.webp",
-            "image_aspect_ratio": "3/4",
+            "image_aspect_ratio": "1/1",
             "show_badge": true,
             "badge_text": "Limited Edition",
             "badge_position_x": 20,
