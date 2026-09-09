@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "campaign_intro": {
+      "type": "collection-campaign",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Sep_9_2026_03_16_28_AM.png",
+        "mobile_image": "shopify://shop_images/imgi_35_487877086_18041727065438763_5405725512669203705_n.jpg"
+      }
+    },
     "section": {
       "type": "section",
       "blocks": {
@@ -56,6 +63,7 @@
         "text_tqQTNE",
         "divider_agfR7J"
       ],
+      "disabled": true,
       "name": "t:names.heading",
       "settings": {
         "content_direction": "column",
@@ -84,8 +92,7 @@
         "border_radius": 0,
         "padding-block-start": 36,
         "padding-block-end": 0
-      },
-      "disabled": true
+      }
     },
     "main": {
       "type": "main-collection",
@@ -347,6 +354,7 @@
         }
       },
       "settings": {
+        "show_campaign_tile": true,
         "layout_type": "grid",
         "product_card_size": "medium",
         "mobile_product_card_size": "small",
@@ -511,10 +519,6 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "campaign_intro": {
-      "type": "collection-campaign",
-      "settings": {}
     }
   },
   "order": [
