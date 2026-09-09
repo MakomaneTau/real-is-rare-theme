@@ -1089,12 +1089,12 @@ button.shopify-payment-button__button--unbranded {
   --button-border-color: var(--color-primary-button-border);
   --button-border-width: var(--style-border-width-primary);
   --button-focus-outline-color: var(--color-primary-button-focus-outline);
+  --button-hover-fill: var(--color-primary-button-hover-background);
 }
 
-.button:hover,
-button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+.button:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible),
+button.shopify-payment-button__button--unbranded:is(:hover, :focus-visible):not([disabled]) {
   --button-color: var(--color-primary-button-hover-text);
-  --button-background-color: var(--color-primary-button-hover-background);
   --button-border-color: var(--color-primary-button-hover-border);
 }
 
@@ -1103,15 +1103,16 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-background-color: var(--color-secondary-button-background);
   --button-border-color: var(--color-secondary-button-border);
   --button-border-width: var(--style-border-width-secondary);
+  --button-hover-fill: var(--color-secondary-button-hover-background);
 }
 
-.button-secondary:hover {
+.button-secondary:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
   --button-color: var(--color-secondary-button-hover-text);
-  --button-background-color: var(--color-secondary-button-hover-background);
   --button-border-color: var(--color-secondary-button-hover-border);
 }
 
 .button-custom {
+  --button-hover-fill: var(--color-primary-button-hover-background);
   --button-color: var(--color-primary-button-text);
   --button-background-color: var(--color-primary-button-background);
   --button-border-color: var(--color-primary-button-border);
@@ -1124,9 +1125,8 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   outline-color: var(--button-focus-outline-color, var(--button-background-color));
 }
 
-.button-custom:hover {
+.button-custom:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
   --button-color: var(--color-primary-button-hover-text);
-  --button-background-color: var(--color-primary-button-hover-background);
   --button-border-color: var(--color-primary-button-hover-border);
 }
 
@@ -1151,14 +1151,6 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
 
 .button-unstyled:hover {
   background-color: inherit;
-}
-
-/* Default hover dim for link-style buttons, scoped via :where() so component-specific
-   hover rules (.facets__clear-all-link, .header-actions__action, etc.) still win. */
-:where(.button-unstyled):hover {
-  --hover-color-rgb: var(--color-foreground-rgb);
-
-  color: rgb(var(--hover-color-rgb) / var(--opacity-70));
 }
 
 .button-unstyled--with-icon {
@@ -1269,7 +1261,6 @@ details[open] > summary .icon-plus .vertical {
 
 .close-button:hover {
   background-color: transparent;
-  opacity: 0.8;
 }
 
 .close-button svg {

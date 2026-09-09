@@ -632,6 +632,15 @@
     padding-inline: 1.25rem;
   }
 
+  .hero[data-rare-campaign] .button-custom[class*='button_shop_now'] {
+    --button-hover-fill: #000000;
+  }
+
+  .hero[data-rare-campaign] .button-custom[class*='button_shop_now']:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
+    --button-color: #ffffff;
+    --button-border-color: #ffffff;
+  }
+
   @media screen and (max-width: 749px) {
     .hero[data-rare-campaign] .hero__content-wrapper {
       padding-inline: 1.25rem;

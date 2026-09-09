@@ -47,19 +47,14 @@
     --button-color: #f5f5f2;
     --button-border-color: #070707;
     --button-border-width: 1px;
+    --button-hover-fill: #262626;
   }
 
-  featured-product-information .add-to-cart-button:not(:disabled):hover {
-    --button-background-color: #262626;
+  featured-product-information .add-to-cart-button:not(:disabled):is(:hover, :focus-visible) {
     --button-color: #f5f5f2;
     --button-border-color: #262626;
   }
 
-  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    featured-product-information .add-to-cart-button:not(:disabled):hover {
-      translate: 0 -2px;
-    }
-  }
 {% endstylesheet %}
 
 {% schema %}
