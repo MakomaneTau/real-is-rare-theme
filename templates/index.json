@@ -445,7 +445,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "portrait",
+                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -533,89 +533,39 @@
         "padding-block-end": 48
       }
     },
-    "17888280657471e07b": {
-      "type": "_blocks",
+    "shop_the_look": {
+      "type": "campaign-editorial",
       "blocks": {
-        "ai_gen_block_905a047_86WQww": {
-          "type": "ai_gen_block_905a047",
+        "look_01": {
+          "type": "look",
           "settings": {
-            "layout": "row",
-            "desktop_width_percent": 100,
-            "padding": 40,
-            "gap": 40,
-            "content_gap": 16,
-            "background_color": "{{ settings.color_palette.background }}",
-            "poster_image": "shopify://shop_images/imgi_35_504502773_18051238031438763_5110234152020635349_n.jpg",
-            "image_aspect_ratio": "1/1",
-            "show_badge": true,
-            "badge_text": "Limited Edition",
-            "badge_position_x": 20,
-            "badge_position_y": 20,
-            "badge_font_size": 11,
-            "badge_border_radius": 0,
-            "badge_background": "#070707",
-            "badge_text_color": "#f5f5f2",
-            "text_alignment": "left",
-            "eyebrow_text": "Exclusive Collection",
-            "eyebrow_size": 12,
-            "eyebrow_color": "#a3a3a3",
-            "title": "Rare Moments Collection",
-            "title_size": 48,
-            "title_color": "{{ settings.color_palette.foreground }}",
-            "description": "<p>Each piece is carefully crafted and numbered, making this a truly unique addition to your collection.</p>",
-            "description_size": 14,
-            "description_color": "{{ settings.color_palette.foreground }}",
-            "show_edition_number": false,
-            "edition_text": "Edition",
-            "current_edition": "42",
-            "total_editions": "100",
-            "edition_size": 16,
-            "edition_color": "#070707",
-            "button_text": "View Exclusives",
-            "button_link": "shopify://collections/exclusives",
-            "button_font_size": 14,
-            "button_border_radius": 0,
-            "button_border_width": 1,
-            "button_background": "{{ settings.color_palette.foreground }}",
-            "button_text_color": "{{ settings.color_palette.background }}",
-            "button_border_color": "{{ settings.color_palette.foreground }}",
-            "button_hover_background": "#000000",
-            "button_hover_text_color": "#f5f5f2",
-            "button_hover_border_color": "{{ settings.color_palette.foreground }}"
-          },
-          "blocks": {}
+            "image": "shopify://shop_images/imgi_61_501993590_18046970774438763_6014288364021847379_n.jpg",
+            "mobile_image": "shopify://shop_images/imgi_60_502668075_18046970816438763_3658295517058650285_n.jpg",
+            "alt": "",
+            "title": "Puzzle Track Suit Set",
+            "shot_brief": "Full-body outfit photograph, preferably vertical 4:5. Keep the jacket, trousers and shoes fully visible. Select the exact products worn in this block.",
+            "products": [
+              "puzzle-track-top-black-x-red",
+              "puzzle-track-pants-black-x-red",
+              "puzzle-track-top-black-x-white",
+              "puzzle-track-pants-black-x-white"
+            ],
+            "link": "",
+            "link_label": "Shop this look"
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_905a047_86WQww"
+        "look_01"
       ],
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "layout": "shop",
+        "page_heading": false,
+        "eyebrow": "THE COMPLETE FIT",
+        "heading": "Shop the look",
+        "intro": "Discover the pieces behind the photograph.",
+        "link_label": "Explore the collection",
+        "link": ""
       }
     },
     "featured_product_information_yhipxg": {
@@ -977,7 +927,7 @@
             "image": "shopify://shop_images/imgi_36_730488844_18086758910438763_9216457943955402878_n.jpg",
             "mobile_image": "shopify://shop_images/imgi_39_726860319_18086334932438763_5731259363412816850_n.jpg",
             "alt": "",
-            "title": "01 / IN MOTION",
+            "title": "",
             "shot_brief": "Vertical 4:5 portrait of a model wearing the current drop in a real street location. Leave space around the subject.",
             "products": [],
             "link": "",
@@ -990,7 +940,7 @@
             "image": "shopify://shop_images/imgi_39_726860319_18086334932438763_5731259363412816850_n.jpg",
             "mobile_image": "shopify://shop_images/imgi_55_730779680_18086757860438763_7268828102137207067_n.jpg",
             "alt": "",
-            "title": "02 / THE DETAILS",
+            "title": "",
             "shot_brief": "Vertical 4:5 close-up of the garment on the model: print, embroidery, texture or sleeve. Use lighting and colors that match the portrait.",
             "products": [],
             "link": "",
@@ -1006,7 +956,7 @@
         "layout": "pair",
         "page_heading": false,
         "eyebrow": "IN THE FRAME",
-        "heading": "Nothing but Rare",
+        "heading": "Your World Cup Quest",
         "intro": "",
         "link_label": "View lookbook",
         "link": "/collections/all?view=lookbook"
@@ -1211,39 +1161,89 @@
         "padding-block-end": 48
       }
     },
-    "shop_the_look": {
-      "type": "campaign-editorial",
+    "17888280657471e07b": {
+      "type": "_blocks",
       "blocks": {
-        "look_01": {
-          "type": "look",
+        "ai_gen_block_905a047_86WQww": {
+          "type": "ai_gen_block_905a047",
           "settings": {
-            "image": "shopify://shop_images/imgi_61_501993590_18046970774438763_6014288364021847379_n.jpg",
-            "mobile_image": "shopify://shop_images/imgi_60_502668075_18046970816438763_3658295517058650285_n.jpg",
-            "alt": "",
-            "title": "Puzzle Track Suit Set",
-            "shot_brief": "Full-body outfit photograph, preferably vertical 4:5. Keep the jacket, trousers and shoes fully visible. Select the exact products worn in this block.",
-            "products": [
-              "puzzle-track-top-black-x-red",
-              "puzzle-track-pants-black-x-red",
-              "puzzle-track-top-black-x-white",
-              "puzzle-track-pants-black-x-white"
-            ],
-            "link": "",
-            "link_label": "Shop this look"
-          }
+            "layout": "row",
+            "desktop_width_percent": 100,
+            "padding": 40,
+            "gap": 40,
+            "content_gap": 16,
+            "background_color": "{{ settings.color_palette.background }}",
+            "poster_image": "shopify://shop_images/imgi_35_504502773_18051238031438763_5110234152020635349_n.jpg",
+            "image_aspect_ratio": "1/1",
+            "show_badge": true,
+            "badge_text": "Limited Edition",
+            "badge_position_x": 20,
+            "badge_position_y": 20,
+            "badge_font_size": 11,
+            "badge_border_radius": 0,
+            "badge_background": "#070707",
+            "badge_text_color": "#f5f5f2",
+            "text_alignment": "left",
+            "eyebrow_text": "Exclusive Collection",
+            "eyebrow_size": 12,
+            "eyebrow_color": "#a3a3a3",
+            "title": "Rare Moments Collection",
+            "title_size": 48,
+            "title_color": "{{ settings.color_palette.foreground }}",
+            "description": "<p>Each piece is carefully crafted and numbered, making this a truly unique addition to your collection.</p>",
+            "description_size": 14,
+            "description_color": "{{ settings.color_palette.foreground }}",
+            "show_edition_number": false,
+            "edition_text": "Edition",
+            "current_edition": "42",
+            "total_editions": "100",
+            "edition_size": 16,
+            "edition_color": "#070707",
+            "button_text": "View Exclusives",
+            "button_link": "shopify://collections/exclusives",
+            "button_font_size": 14,
+            "button_border_radius": 0,
+            "button_border_width": 1,
+            "button_background": "{{ settings.color_palette.foreground }}",
+            "button_text_color": "{{ settings.color_palette.background }}",
+            "button_border_color": "{{ settings.color_palette.foreground }}",
+            "button_hover_background": "#000000",
+            "button_hover_text_color": "#f5f5f2",
+            "button_hover_border_color": "{{ settings.color_palette.foreground }}"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "look_01"
+        "ai_gen_block_905a047_86WQww"
       ],
       "settings": {
-        "layout": "shop",
-        "page_heading": false,
-        "eyebrow": "THE COMPLETE FIT",
-        "heading": "Shop the look",
-        "intro": "Discover the pieces behind the photograph.",
-        "link_label": "Explore the collection",
-        "link": ""
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
@@ -1252,10 +1252,10 @@
     "hero_iyt6zg",
     "collection_list_kVhprE",
     "product_list_xbHyBT",
-    "17888280657471e07b",
+    "shop_the_look",
     "featured_product_information_yhipxg",
     "campaign_pair",
     "product_list_AU6www",
-    "shop_the_look"
+    "17888280657471e07b"
   ]
 }
