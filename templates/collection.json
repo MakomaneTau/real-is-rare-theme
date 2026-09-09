@@ -355,6 +355,7 @@
       },
       "settings": {
         "show_campaign_tile": true,
+        "campaign_image": "shopify://shop_images/ChatGPT_Image_Sep_9_2026_03_56_00_AM.png",
         "layout_type": "grid",
         "product_card_size": "medium",
         "mobile_product_card_size": "small",
