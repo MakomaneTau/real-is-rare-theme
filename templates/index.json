@@ -1189,13 +1189,13 @@
             "badge_text": "Summer Sale",
             "heading": "Up to 50% Off",
             "subheading": "Limited time offer on selected items",
-            "button_text": "Shop Now",
-            "button_link": "",
+            "button_text": "Shop the sale",
+            "button_link": "shopify://collections/all",
             "desktop_width_percent": 100,
-            "text_alignment": "center",
-            "padding_vertical": 60,
-            "padding_horizontal": 20,
-            "background_color": "#a3a3a3",
+            "text_alignment": "left",
+            "padding_vertical": 35,
+            "padding_horizontal": 40,
+            "background_color": "#e9e6dc",
             "text_color": "#070707",
             "badge_background_color": "#070707",
             "badge_text_color": "#f5f5f2",
@@ -1225,7 +1225,7 @@
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 12,
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
@@ -1247,6 +1247,7 @@
     }
   },
   "order": [
+    "1788961065d79ed462",
     "hero_iyt6zg",
     "collection_list_kVhprE",
     "product_list_xbHyBT",
@@ -1254,7 +1255,6 @@
     "featured_product_information_yhipxg",
     "campaign_pair",
     "product_list_AU6www",
-    "shop_the_look",
-    "1788961065d79ed462"
+    "shop_the_look"
   ]
 }

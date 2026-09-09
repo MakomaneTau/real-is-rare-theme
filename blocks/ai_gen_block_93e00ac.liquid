@@ -14,7 +14,8 @@
     padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
     text-align: {{ block.settings.text_alignment }};
     position: relative;
-    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px solid currentColor;
   }
 
   .ai-summer-banner-container-{{ ai_gen_id }} {
@@ -22,43 +23,64 @@
     z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .ai-summer-banner-copy-{{ ai_gen_id }} {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .ai-summer-banner-badge-{{ ai_gen_id }} {
     display: inline-block;
     font-size: {{ block.settings.badge_font_size }}px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: {{ block.settings.badge_text_color }};
     background-color: {{ block.settings.badge_background_color }};
-    padding: 8px 16px;
-    margin-bottom: 12px;
+    padding: 6px 10px;
+    margin-bottom: 14px;
   }
 
   .ai-summer-banner-heading-{{ ai_gen_id }} {
     font-size: {{ block.settings.heading_font_size }}px;
-    font-weight: 400;
-    margin: 0 0 12px;
-    line-height: 1.2;
+    font-family: var(--font-body--family);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.045em;
+    color: inherit;
+    margin: 0 0 10px;
+    line-height: 1;
   }
 
   .ai-summer-banner-subheading-{{ ai_gen_id }} {
     font-size: {{ block.settings.subheading_font_size }}px;
-    margin: 0 0 24px;
-    opacity: 0.9;
+    margin: 0;
+    line-height: 1.5;
   }
 
   .ai-summer-banner-button-{{ ai_gen_id }} {
-    display: inline-block;
-    padding: 14px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-shrink: 0;
+    min-height: 48px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 16px 24px;
     background-color: {{ block.settings.button_background_color }};
     color: {{ block.settings.button_text_color }};
     text-decoration: none;
     font-size: {{ block.settings.button_font_size }}px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
     border: {{ block.settings.button_border_width }}px solid {{ block.settings.button_border_color }};
   }
 
@@ -67,48 +89,69 @@
     color: {{ block.settings.button_hover_text_color }};
   }
 
+  .ai-summer-banner-button-{{ ai_gen_id }}:focus-visible {
+    outline: 2px solid {{ block.settings.text_color }};
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai-summer-banner-button-{{ ai_gen_id }} {
+      transition: none;
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .ai-summer-banner-{{ ai_gen_id }} {
-      padding: {{ block.settings.padding_vertical | times: 0.7 }}px {{ block.settings.padding_horizontal | times: 0.7 }}px;
+      width: 100%;
+      padding: {{ block.settings.padding_vertical | times: 0.7 }}px max(20px, {{ block.settings.padding_horizontal | times: 0.7 }}px);
+    }
+
+    .ai-summer-banner-container-{{ ai_gen_id }} {
+      flex-direction: column;
+      align-items: {% case block.settings.text_alignment %}{% when 'left' %}flex-start{% when 'right' %}flex-end{% else %}center{% endcase %};
+      gap: 24px;
     }
 
     .ai-summer-banner-heading-{{ ai_gen_id }} {
-      font-size: {{ block.settings.heading_font_size | times: 0.6 }}px;
+      font-size: clamp(28px, 8vw, {{ block.settings.heading_font_size }}px);
     }
 
     .ai-summer-banner-subheading-{{ ai_gen_id }} {
-      font-size: {{ block.settings.subheading_font_size | times: 0.8 }}px;
+      font-size: {{ block.settings.subheading_font_size }}px;
     }
 
     .ai-summer-banner-badge-{{ ai_gen_id }} {
-      font-size: {{ block.settings.badge_font_size | times: 0.8 }}px;
+      font-size: {{ block.settings.badge_font_size }}px;
     }
   }
 {% endstyle %}
 
 <div class="ai-summer-banner-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
   <div class="ai-summer-banner-container-{{ ai_gen_id }}">
-    {% if block.settings.badge_text != blank %}
-      <div class="ai-summer-banner-badge-{{ ai_gen_id }}">
-        {{ block.settings.badge_text }}
-      </div>
-    {% endif %}
+    <div class="ai-summer-banner-copy-{{ ai_gen_id }}">
+      {% if block.settings.badge_text != blank %}
+        <div class="ai-summer-banner-badge-{{ ai_gen_id }}">
+          {{ block.settings.badge_text | escape }}
+        </div>
+      {% endif %}
 
-    {% if block.settings.heading != blank %}
-      <h2 class="ai-summer-banner-heading-{{ ai_gen_id }}">
-        {{ block.settings.heading }}
-      </h2>
-    {% endif %}
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-summer-banner-heading-{{ ai_gen_id }}">
+          {{ block.settings.heading | escape }}
+        </h2>
+      {% endif %}
 
-    {% if block.settings.subheading != blank %}
-      <div class="ai-summer-banner-subheading-{{ ai_gen_id }}">
-        {{ block.settings.subheading }}
-      </div>
-    {% endif %}
+      {% if block.settings.subheading != blank %}
+        <div class="ai-summer-banner-subheading-{{ ai_gen_id }}">
+          {{ block.settings.subheading | escape }}
+        </div>
+      {% endif %}
+    </div>
 
     {% if block.settings.button_text != blank and block.settings.button_link != blank %}
-      <a href="{{ block.settings.button_link }}" class="ai-summer-banner-button-{{ ai_gen_id }}">
-        {{ block.settings.button_text }}
+      <a href="{{ block.settings.button_link | escape }}" class="ai-summer-banner-button-{{ ai_gen_id }}">
+        {{ block.settings.button_text | escape }}
+        <span aria-hidden="true">&rarr;</span>
       </a>
     {% endif %}
   </div>
@@ -117,6 +160,7 @@
 {% schema %}
 {
   "name": "Summer sales banner",
+  "tag": null,
   "settings": [
     {
       "type": "header",
