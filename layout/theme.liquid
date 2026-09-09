@@ -39,6 +39,9 @@
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
+    {% if request.page_type == 'index' or request.page_type == 'collection' or request.page_type == 'product' %}
+      <script src="{{ 'scroll-reveal.js' | asset_url }}" type="module"></script>
+    {% endif %}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
 
