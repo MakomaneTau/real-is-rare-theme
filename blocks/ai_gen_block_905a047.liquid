@@ -121,6 +121,7 @@
   }
 
   .ai-limited-poster-cta-{{ ai_gen_id }} {
+    --button-hover-fill: {{ block.settings.button_hover_background }};
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -144,8 +145,7 @@
     {% endif %}
   }
 
-  .ai-limited-poster-cta-{{ ai_gen_id }}:hover {
-    background-color: {{ block.settings.button_hover_background }};
+  .ai-limited-poster-cta-{{ ai_gen_id }}:is(:hover, :focus-visible) {
     color: {{ block.settings.button_hover_text_color }};
     border-color: {{ block.settings.button_hover_border_color }};
   }
@@ -221,7 +221,7 @@
       </div>
 
       {% if block.settings.button_link != blank and block.settings.button_text != blank %}
-        <a href="{{ block.settings.button_link }}" class="ai-limited-poster-cta-{{ ai_gen_id }}">
+        <a href="{{ block.settings.button_link }}" class="ai-limited-poster-cta-{{ ai_gen_id }} button-fill">
           {{ block.settings.button_text }}
         </a>
       {% endif %}

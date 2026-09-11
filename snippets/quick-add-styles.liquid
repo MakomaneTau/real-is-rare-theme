@@ -63,7 +63,8 @@
     align-items: center;
     justify-content: center;
     gap: 0;
-    background: linear-gradient(var(--quick-add-background, var(--color-background)) 0 100%) padding-box;
+    background-color: var(--quick-add-background, var(--color-background));
+    --button-hover-fill: var(--quick-add-foreground, var(--color-foreground));
     padding: 0;
     border-radius: 50px;
     border: 2px solid hsl(0 0% 0% / 0.15);
@@ -81,8 +82,8 @@
     min-inline-size: 0;
     backdrop-filter: blur(20px) saturate(180%);
 
-    &:hover {
-      scale: 1.03;
+    &:not(:disabled, [aria-disabled='true']):hover {
+      color: var(--quick-add-background, var(--color-background));
 
       /* Hover stabilizer: extends hit area to maintain hover state */
       &::before {
@@ -95,6 +96,18 @@
 
     &:active {
       scale: 0.99;
+    }
+
+    &:not(:disabled, [aria-disabled='true']):focus-visible {
+      color: var(--quick-add-background, var(--color-background));
+    }
+
+    &[data-added='true']:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
+      color: transparent;
+
+      .add-to-cart__added {
+        color: var(--quick-add-background, var(--color-background));
+      }
     }
 
     .quick-add[stay-visible] & {

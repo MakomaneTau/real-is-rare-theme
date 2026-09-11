@@ -9,6 +9,17 @@
  */
 {
   "sections": {
+    "campaign_intro": {
+      "type": "collection-campaign",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Sep_9_2026_03_16_28_AM.png",
+        "mobile_image": "shopify://shop_images/imgi_35_487877086_18041727065438763_5405725512669203705_n.jpg",
+        "desktop_ratio": "3 / 1",
+        "desktop_max_height": 420,
+        "mobile_ratio": "4 / 3",
+        "mobile_max_height": 420
+      }
+    },
     "section": {
       "type": "section",
       "blocks": {
@@ -16,7 +27,7 @@
           "type": "text",
           "name": "t:names.title",
           "settings": {
-            "text": "<h1>Shop All</h1>",
+            "text": "<h1>{{ closest.collection.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -56,6 +67,7 @@
         "text_tqQTNE",
         "divider_agfR7J"
       ],
+      "disabled": true,
       "name": "t:names.heading",
       "settings": {
         "content_direction": "column",
@@ -346,6 +358,8 @@
         }
       },
       "settings": {
+        "show_campaign_tile": true,
+        "campaign_image": "shopify://shop_images/ChatGPT_Image_Sep_9_2026_03_56_00_AM.png",
         "layout_type": "grid",
         "product_card_size": "medium",
         "mobile_product_card_size": "small",
@@ -471,7 +485,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -513,6 +527,7 @@
     }
   },
   "order": [
+    "campaign_intro",
     "section",
     "main",
     "product_list_cNqTd7"

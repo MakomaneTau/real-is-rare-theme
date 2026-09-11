@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "lookbook": {
+      "type": "campaign-editorial",
+      "settings": {
+        "layout": "lookbook",
+        "page_heading": true,
+        "heading": "Lookbook",
+        "eyebrow": "REAL IS RARE / IN THE FRAME",
+        "intro": "The clothes. The people. The places."
+      },
+      "blocks": {
+        "wide": {
+          "type": "look",
+          "settings": {
+            "title": "LOOK 01 / THE CAMPAIGN",
+            "shot_brief": "Wide landscape 16:9 campaign photograph with one or more models in the current release. Use a separate 4:5 mobile crop."
+          },
+          "blocks": {}
+        },
+        "portrait": {
+          "type": "look",
+          "settings": {
+            "title": "LOOK 02 / THE FIT",
+            "shot_brief": "Vertical 4:5 full-body model photograph. Show the silhouette, sleeves, trouser length and footwear."
+          },
+          "blocks": {}
+        },
+        "detail": {
+          "type": "look",
+          "settings": {
+            "title": "LOOK 03 / UP CLOSE",
+            "shot_brief": "Vertical 4:5 garment detail on the model. Focus on fabric, print or embroidery, with the same lighting as the other images."
+          },
+          "blocks": {}
+        },
+        "location": {
+          "type": "look",
+          "settings": {
+            "title": "LOOK 04 / ON LOCATION",
+            "shot_brief": "Wide 16:9 candid photograph from the same shoot. Show movement and the surrounding location; add a 4:5 mobile version."
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "wide",
+        "portrait",
+        "detail",
+        "location"
+      ]
+    }
+  },
+  "order": [
+    "lookbook"
+  ]
+}

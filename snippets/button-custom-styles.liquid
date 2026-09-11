@@ -15,11 +15,6 @@
     .email-signup__button.button-unstyled.button-unstyled--{{ block_id }} {
       color: rgb({{ block_settings.link_text_color.rgba }});
     }
-
-    .button-unstyled--{{ block_id }}:hover,
-    .email-signup__button.button-unstyled.button-unstyled--{{ block_id }}:hover {
-      color: rgb({{ block_settings.link_text_color.rgb }} / var(--opacity-70));
-    }
   {% endstyle %}
 {% endif %}
 
@@ -55,9 +50,9 @@
       --button-color: rgb({{ effective_text_color.rgba }});
       --button-border-color: rgb({{ effective_border_color.rgba }});
       --button-focus-outline-color: rgb({{ effective_focus_outline_color.rgb }});
+      --button-hover-fill: {{ effective_hover_bg }};
     }
-    .button-custom--{{ block_id }}:hover {
-      --button-background-color: {{ effective_hover_bg }};
+    .button-custom--{{ block_id }}:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
       --button-color: {{ effective_hover_text }};
       --button-border-color: {{ effective_hover_border }};
     }

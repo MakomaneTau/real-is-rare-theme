@@ -1,0 +1,55 @@
+{% content_for 'blocks' %}
+
+{% stylesheet %}
+  .countdown-banner-section {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* The transparent header is absolute; the countdown already occupies its own row. */
+  body:has(.header[transparent])
+    #header-group:has(> .countdown-banner-section):has(> .header-section:last-child)
+    ~ .content-for-layout
+    > .shopify-section:first-child {
+    margin-top: 0;
+  }
+
+  /* Preserve the hero height instead of subtracting the countdown above it. */
+  body:has(.header[transparent])
+    #header-group:has(> .countdown-banner-section):has(> .header-section:last-child)
+    ~ .content-for-layout
+    > .hero-wrapper:first-child {
+    --hero-height-offset: 0px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Countdown banner",
+  "class": "countdown-banner-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "max_blocks": 1,
+  "blocks": [
+    {
+      "type": "ai_gen_block_bc1f26d"
+    }
+  ],
+  "settings": [],
+  "presets": [
+    {
+      "name": "Countdown banner",
+      "blocks": [
+        {
+          "type": "ai_gen_block_bc1f26d"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

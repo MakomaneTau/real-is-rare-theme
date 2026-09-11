@@ -632,6 +632,15 @@
     padding-inline: 1.25rem;
   }
 
+  .hero[data-rare-campaign] .button-custom[class*='button_shop_now'] {
+    --button-hover-fill: #000000;
+  }
+
+  .hero[data-rare-campaign] .button-custom[class*='button_shop_now']:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
+    --button-color: #ffffff;
+    --button-border-color: #ffffff;
+  }
+
   @media screen and (max-width: 749px) {
     .hero[data-rare-campaign] .hero__content-wrapper {
       padding-inline: 1.25rem;
@@ -707,17 +716,17 @@
 
   @media screen and (max-width: 749px) {
     .hero[data-rare-campaign] {
-      width: calc(100% - 1.5rem);
-      max-width: 28rem;
+      width: 100%;
+      max-width: none;
       min-height: 0;
-      margin: 0.75rem auto;
+      margin: 0;
     }
 
     .hero[data-rare-campaign] .hero__container {
       min-height: 0;
       max-height: 52.5rem;
       aspect-ratio: 9 / 18;
-      border-radius: 0.75rem;
+      border-radius: 0;
     }
 
     .hero[data-rare-campaign] .hero__content-wrapper {

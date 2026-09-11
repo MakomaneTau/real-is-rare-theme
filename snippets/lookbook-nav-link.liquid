@@ -1,0 +1,24 @@
+{% doc %}
+  Adds the lookbook only when it is not already in the selected menu.
+  @param {linklist} menu - Existing navigation menu
+  @param {boolean} [mobile] - Render drawer styling
+{% enddoc %}
+{% capture lookbook_url %}{% render 'lookbook-url' %}{% endcapture %}
+{% liquid
+  assign lookbook_url = lookbook_url | strip
+  assign already_linked = false
+  for link in menu.links
+    if link.url == lookbook_url or link.url contains '/pages/lookbook' or link.url contains 'view=lookbook'
+      assign already_linked = true
+    endif
+  endfor
+%}
+{% unless already_linked %}
+  {% if mobile %}
+    <li><a href="{{ lookbook_url }}" class="menu-drawer__menu-item menu-drawer__menu-item--mainlist focus-inset"><span class="menu-drawer__menu-item-text">Lookbook</span></a></li>
+  {% else %}
+    <li class="menu-list__list-item" role="presentation" on:focus="/activate" on:blur="/deactivate" on:pointerenter="/activate" on:pointerleave="/deactivate">
+      <a href="{{ lookbook_url }}" class="menu-list__link" ref="menuitem"><span class="menu-list__link-title">Lookbook</span></a>
+    </li>
+  {% endif %}
+{% endunless %}

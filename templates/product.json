@@ -309,7 +309,8 @@
                   },
                   "block_order": [
                     "text_VdG98J"
-                  ]
+                  ],
+                  "disabled": true
                 },
                 "accordion_row_pLFDcD": {
                   "type": "_accordion-row",
@@ -348,7 +349,8 @@
                   },
                   "block_order": [
                     "text_qLGEN9"
-                  ]
+                  ],
+                  "disabled": true
                 }
               },
               "block_order": [
@@ -375,6 +377,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "fit_details": {
+              "type": "product-fit-details",
+              "settings": {},
+              "blocks": {}
             }
           },
           "block_order": [
@@ -382,6 +389,7 @@
             "price_a7krng",
             "divider_HrJgFt",
             "variant_picker_R3rGDr",
+            "fit_details",
             "buy_buttons_eYQEYi",
             "accordion_NKWPiW",
             "disclosures_hFEnPD"
@@ -686,10 +694,15 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "worn_with": {
+      "type": "product-worn-with",
+      "settings": {}
     }
   },
   "order": [
     "main",
+    "worn_with",
     "product_recommendations_qnzPkn"
   ]
 }

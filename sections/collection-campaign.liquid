@@ -1,0 +1,112 @@
+{{ 'rare-editorial.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign campaign_image = section.settings.image
+  assign campaign_mobile_image = section.settings.mobile_image
+
+  if collection.handle != 'all' and collection.image != blank
+    assign campaign_image = collection.image
+    assign campaign_mobile_image = collection.image
+  endif
+%}
+<section
+  class="rare-editorial rare-collection-intro"
+  style="
+    --campaign-desktop-ratio: {{ section.settings.desktop_ratio | default: '3 / 1' }};
+    --campaign-mobile-ratio: {{ section.settings.mobile_ratio | default: '4 / 3' }};
+    --campaign-desktop-height: {{ section.settings.desktop_max_height | default: 420 }}px;
+    --campaign-mobile-height: {{ section.settings.mobile_max_height | default: 420 }}px;
+  "
+>
+  <div class="rare-editorial__heading">
+    <div><p class="rare-editorial__eyebrow">REAL IS RARE / COLLECTION</p><h1 class="rare-editorial__title">{{ collection.title | escape }}</h1></div>
+    {% if collection.description != blank %}<div class="rare-editorial__intro">{{ collection.description }}</div>{% endif %}
+  </div>
+  <div class="rare-editorial__photo">
+    {% if campaign_image != blank %}
+      {% render 'campaign-image', image: campaign_image, mobile_image: campaign_mobile_image, alt: collection.title %}
+    {% else %}
+      <div class="rare-editorial__placeholder">{{ 'hero-apparel-1' | placeholder_svg_tag }}<p>Wide campaign photograph of models wearing this collection. Keep faces and garments near the center for mobile cropping.</p></div>
+    {% endif %}
+  </div>
+</section>
+{% stylesheet %}
+.rare-collection-intro .rare-editorial__photo {
+  aspect-ratio: var(--campaign-desktop-ratio);
+  max-height: var(--campaign-desktop-height);
+}
+@media (max-width: 749px) {
+  .rare-collection-intro .rare-editorial__photo {
+    aspect-ratio: var(--campaign-mobile-ratio);
+    max-height: var(--campaign-mobile-height);
+  }
+}
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Collection campaign",
+  "enabled_on": { "templates": ["collection"] },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Default campaign photograph",
+      "info": "Shown for All products and collections without an image. Other collections use their collection image."
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Default mobile crop",
+      "info": "Optional mobile crop for the default photograph. Collections with an image use their collection image on mobile too."
+    },
+    { "type": "header", "content": "Desktop landscape size" },
+    {
+      "type": "select",
+      "id": "desktop_ratio",
+      "label": "Image proportions",
+      "options": [
+        { "value": "3 / 1", "label": "Wide banner (3:1)" },
+        { "value": "16 / 9", "label": "Landscape (16:9)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" }
+      ],
+      "default": "3 / 1"
+    },
+    {
+      "type": "range",
+      "id": "desktop_max_height",
+      "label": "Maximum height",
+      "info": "Limits the height of the chosen proportions. Images crop to fill.",
+      "min": 200,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "default": 420
+    },
+    { "type": "header", "content": "Mobile size" },
+    {
+      "type": "select",
+      "id": "mobile_ratio",
+      "label": "Image proportions",
+      "options": [
+        { "value": "16 / 9", "label": "Landscape (16:9)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" },
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "4 / 5", "label": "Portrait (4:5)" },
+        { "value": "9 / 16", "label": "Portrait (9:16)" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "range",
+      "id": "mobile_max_height",
+      "label": "Maximum height",
+      "info": "Limits the height of the chosen proportions. Images crop to fill.",
+      "min": 200,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "default": 420
+    }
+  ],
+  "presets": [{ "name": "Collection campaign" }]
+}
+{% endschema %}

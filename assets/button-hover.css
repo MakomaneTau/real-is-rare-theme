@@ -1,0 +1,23 @@
+/* One vertical edge sweeps from left to right, without covering labels or icons.
+   Background layers avoid pseudo-elements used by loading and success states. */
+:is(button, [role='button'], input[type='submit'], input[type='button'], input[type='reset'], .button, .button-secondary, .button-custom, .button-unstyled, .button-fill) {
+  background-image: linear-gradient(
+    var(--button-hover-fill, color-mix(in srgb, currentColor 18%, transparent)),
+    var(--button-hover-fill, color-mix(in srgb, currentColor 18%, transparent))
+  ) !important;
+  background-size: 0% 100% !important;
+  background-position: left center !important;
+  background-repeat: no-repeat !important;
+  transition: background-size 300ms ease, color 300ms ease, border-color 300ms ease,
+    box-shadow 300ms ease, opacity 300ms ease !important;
+}
+
+:is(button, [role='button'], input[type='submit'], input[type='button'], input[type='reset'], .button, .button-secondary, .button-custom, .button-unstyled, .button-fill):not(:disabled, [disabled], [aria-disabled='true']):is(:hover, :focus-visible) {
+  background-size: 100% 100% !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(button, [role='button'], input[type='submit'], input[type='button'], input[type='reset'], .button, .button-secondary, .button-custom, .button-unstyled, .button-fill) {
+    transition: none !important;
+  }
+}
