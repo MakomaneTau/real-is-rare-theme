@@ -151,6 +151,13 @@
               },
               "blocks": {}
             },
+            "fit_details": {
+              "type": "product-fit-details",
+              "settings": {
+                "heading": "Fit & details"
+              },
+              "blocks": {}
+            },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
@@ -274,6 +281,7 @@
                 },
                 "accordion_row_iJM37V": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Care",
                     "open_by_default": false,
@@ -309,11 +317,11 @@
                   },
                   "block_order": [
                     "text_VdG98J"
-                  ],
-                  "disabled": true
+                  ]
                 },
                 "accordion_row_pLFDcD": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Design",
                     "open_by_default": false,
@@ -349,8 +357,7 @@
                   },
                   "block_order": [
                     "text_qLGEN9"
-                  ],
-                  "disabled": true
+                  ]
                 }
               },
               "block_order": [
@@ -377,11 +384,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "fit_details": {
-              "type": "product-fit-details",
-              "settings": {},
-              "blocks": {}
             }
           },
           "block_order": [
@@ -406,6 +408,13 @@
         "background_color": "#ffffff",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "worn_with": {
+      "type": "product-worn-with",
+      "disabled": true,
+      "settings": {
+        "show_placeholder": true
       }
     },
     "product_recommendations_qnzPkn": {
@@ -694,10 +703,6 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "worn_with": {
-      "type": "product-worn-with",
-      "settings": {}
     }
   },
   "order": [
