@@ -101,6 +101,11 @@
     text-transform: var(--button-text-case-primary);
   }
 
+  .product-form-buttons .add-to-cart-button:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
+    outline: 1px solid #000000;
+    outline-offset: -1px;
+  }
+
   .add-to-cart-button.button-secondary {
     text-transform: var(--button-text-case-secondary);
   }

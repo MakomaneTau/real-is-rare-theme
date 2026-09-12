@@ -39,6 +39,19 @@
     }
   }
 
+  .add-to-cart-button:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) {
+    --button-color: #000000;
+    --button-border-color: #000000;
+    --button-hover-fill: #ffffff;
+    --button-focus-outline-color: #000000;
+
+    color: #000000;
+  }
+
+  .add-to-cart-button:not(:disabled, [aria-disabled='true']):is(:hover, :focus-visible) .svg-wrapper {
+    color: #000000;
+  }
+
   .add-to-cart-button .svg-wrapper .checkmark-burst {
     width: 30px;
     height: 30px;
