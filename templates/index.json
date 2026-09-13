@@ -545,10 +545,9 @@
             "title": "Puzzle Track Suit Set",
             "shot_brief": "Full-body outfit photograph, preferably vertical 4:5. Keep the jacket, trousers and shoes fully visible. Select the exact products worn in this block.",
             "products": [
-              "puzzle-track-top-black-x-red",
-              "puzzle-track-pants-black-x-red",
-              "puzzle-track-top-black-x-white",
-              "puzzle-track-pants-black-x-white"
+              "rr-puzzle-tracksuit-set-black-x-red",
+              "rr-puzzle-tracksuit-set-black-x-white",
+              "rr-puzzle-tracksuit-set-black-x-blue"
             ],
             "link": "",
             "link_label": "Shop this look"
