@@ -314,9 +314,9 @@
       "name": "t:names.collections_grid",
       "settings": {
         "collection_list": [
-          "t-shirts",
-          "pants",
-          "jackets"
+          "all-season-essentials",
+          "cool-weather-collection",
+          "tracksuits-sets"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
