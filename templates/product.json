@@ -158,6 +158,27 @@
               },
               "blocks": {}
             },
+            "jersey_personalization": {
+              "type": "ai_gen_block_7e7acc4",
+              "settings": {
+                "target_product": "",
+                "desktop_width_percent": 100,
+                "heading": "Personalise your jersey",
+                "instructions": "Enter the name and number you would like printed on your World Cup Quest Jersey.",
+                "name_label": "Printed name",
+                "name_placeholder": "Enter your name",
+                "name_max_length": 15,
+                "number_label": "Printed number",
+                "number_placeholder": "Enter 1-2 digits",
+                "number_max_length": 2,
+                "note": "Please check your spelling and number before adding the jersey to your cart.",
+                "background_color": "#f5f5f2",
+                "text_color": "#070707",
+                "muted_text_color": "#454545",
+                "border_color": "#262626"
+              },
+              "blocks": {}
+            },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
@@ -392,6 +413,7 @@
             "divider_HrJgFt",
             "variant_picker_R3rGDr",
             "fit_details",
+            "jersey_personalization",
             "buy_buttons_eYQEYi",
             "accordion_NKWPiW",
             "disclosures_hFEnPD"

@@ -3,8 +3,26 @@
     Create a product-page customization block for the Personalised World Cup Quest Jersey that lets shoppers enter a printed name and printed number, adds both selections to the order, and shows clear labels and helpful instructions. Display the block only on this product and keep the existing size selector unchanged.
 {% enddoc %}
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign product_form_id = 'BuyButtons-ProductForm-' | append: section.id %}
+{% assign normalized_product_title = product.title | downcase %}
+{% assign normalized_product_handle = product.handle | downcase %}
+{% assign is_target_product = false %}
 
 {% if product and block.settings.target_product and product.id == block.settings.target_product.id %}
+  {% assign is_target_product = true %}
+{% elsif product
+  and normalized_product_title contains 'world cup quest'
+  and normalized_product_title contains 'personal'
+%}
+  {% assign is_target_product = true %}
+{% elsif product
+  and normalized_product_handle contains 'world-cup-quest'
+  and normalized_product_handle contains 'personal'
+%}
+  {% assign is_target_product = true %}
+{% endif %}
+
+{% if is_target_product %}
   {% style %}
     .ai-jersey-personalization-{{ ai_gen_id }} {
       display: block;
@@ -92,12 +110,12 @@
     <div class="ai-jersey-personalization-{{ ai_gen_id }}__fields">
       <div class="ai-jersey-personalization-{{ ai_gen_id }}__field">
         <label class="ai-jersey-personalization-{{ ai_gen_id }}__label" for="ai-jersey-name-{{ ai_gen_id }}">{{ block.settings.name_label | escape }}</label>
-        <input class="ai-jersey-personalization-{{ ai_gen_id }}__input" id="ai-jersey-name-{{ ai_gen_id }}" type="text" name="properties[Printed name]" maxlength="{{ block.settings.name_max_length }}" autocomplete="off" required aria-required="true" placeholder="{{ block.settings.name_placeholder | escape }}">
+        <input class="ai-jersey-personalization-{{ ai_gen_id }}__input" id="ai-jersey-name-{{ ai_gen_id }}" type="text" name="properties[Printed name]" form="{{ product_form_id }}" maxlength="{{ block.settings.name_max_length }}" autocomplete="off" required aria-required="true" placeholder="{{ block.settings.name_placeholder | escape }}">
       </div>
 
       <div class="ai-jersey-personalization-{{ ai_gen_id }}__field">
         <label class="ai-jersey-personalization-{{ ai_gen_id }}__label" for="ai-jersey-number-{{ ai_gen_id }}">{{ block.settings.number_label | escape }}</label>
-        <input class="ai-jersey-personalization-{{ ai_gen_id }}__input" id="ai-jersey-number-{{ ai_gen_id }}" type="text" name="properties[Printed number]" inputmode="numeric" pattern="[0-9]+" maxlength="{{ block.settings.number_max_length }}" autocomplete="off" required aria-required="true" placeholder="{{ block.settings.number_placeholder | escape }}">
+        <input class="ai-jersey-personalization-{{ ai_gen_id }}__input" id="ai-jersey-number-{{ ai_gen_id }}" type="text" name="properties[Printed number]" form="{{ product_form_id }}" inputmode="numeric" pattern="[0-9]+" maxlength="{{ block.settings.number_max_length }}" autocomplete="off" required aria-required="true" placeholder="{{ block.settings.number_placeholder | escape }}">
       </div>
     </div>
 
