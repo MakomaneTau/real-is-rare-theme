@@ -1070,7 +1070,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "square",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -1141,7 +1141,7 @@
       },
       "name": "t:names.products_grid",
       "settings": {
-        "collection": "t-shirts",
+        "collection": "tracksuits-sets",
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1244,63 +1244,6 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    },
-    "17898654487dafb4b8": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_7e7acc4_ezH8BN": {
-          "type": "ai_gen_block_7e7acc4",
-          "settings": {
-            "target_product": "world-cup-quest-jersey",
-            "desktop_width_percent": 100,
-            "heading": "Personalise your jersey",
-            "instructions": "Enter the name and number you would like printed on your World Cup Quest Jersey.",
-            "name_label": "Printed name",
-            "name_placeholder": "Enter your name",
-            "name_max_length": 15,
-            "number_label": "Printed number",
-            "number_placeholder": "Enter 1-2 digits",
-            "number_max_length": 2,
-            "note": "Please check your spelling and number before adding the jersey to your cart.",
-            "background_color": "#f5f5f2",
-            "text_color": "#070707",
-            "muted_text_color": "#454545",
-            "border_color": "#262626"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_7e7acc4_ezH8BN"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
     }
   },
   "order": [
@@ -1312,7 +1255,6 @@
     "product_list_xbHyBT",
     "campaign_pair",
     "product_list_AU6www",
-    "17888280657471e07b",
-    "17898654487dafb4b8"
+    "17888280657471e07b"
   ]
 }
