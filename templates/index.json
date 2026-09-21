@@ -435,7 +435,7 @@
                   "type": "text",
                   "name": "Featured release eyebrow",
                   "settings": {
-                    "text": "<p>Latest Drop</p>",
+                    "text": "<p>Most Popular Item</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -674,7 +674,7 @@
       },
       "name": "t:names.featured_product_information",
       "settings": {
-        "product": "nothing-but-real-t-shirt-black",
+        "product": "uncuffed-cargo-pants-black",
         "product_link_label": "View full product details",
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
