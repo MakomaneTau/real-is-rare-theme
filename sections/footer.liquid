@@ -55,6 +55,12 @@
 </div>
 
 {% stylesheet %}
+  @media screen and (min-width: 750px) {
+    .shopify-section:has(> .section > .footer-content) {
+      margin-block-start: 48px;
+    }
+  }
+
   .footer-content {
     contain: content;
     content-visibility: auto;

@@ -295,7 +295,7 @@
         "font": "heading",
         "unit": "percent",
         "pixel_height": 320,
-        "percent_width": 100,
+        "percent_width": 70,
         "custom_mobile_size": true,
         "unit_mobile": "percent",
         "percent_width_mobile": 100,
