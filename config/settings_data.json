@@ -9,7 +9,9 @@
  */
 {
   "current": {
-    "favicon": "shopify://shop_images/ChatGPT_Image_Sep_24_2026_10_16_14_AM.png",
+    "logo": "shopify://shop_images/Firefly.png",
+    "logo_inverse": "shopify://shop_images/ChatGPT_Image_Sep_24__2026__10_47_46_AM-removebg-preview.png",
+    "favicon": "shopify://shop_images/ChatGPT_Image_Sep_24_2026_10_16_14_AM_e37a8cfa-bb07-4dde-992b-0f3e42723293.png",
     "page_text_color": "#070707",
     "type_body_font": "playfair_display_n4",
     "type_subheading_font": "playfair_display_n4",
