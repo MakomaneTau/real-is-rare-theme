@@ -294,17 +294,17 @@
         "inverse": false,
         "font": "heading",
         "unit": "percent",
-        "pixel_height": 48,
+        "pixel_height": 320,
         "percent_width": 100,
-        "custom_mobile_size": false,
+        "custom_mobile_size": true,
         "unit_mobile": "percent",
         "percent_width_mobile": 100,
         "pixel_height_mobile": 120,
         "section_width": "page-width",
         "alignment_horizontal": "center",
         "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 72,
-        "padding-block-end": 48
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "utilities": {
