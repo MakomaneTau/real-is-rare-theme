@@ -1,0 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "our_story": {
+      "type": "our-story",
+      "settings": {
+        "eyebrow": "REAL IS RARE / OUR STORY",
+        "heading": "Made for the ones who move differently.",
+        "statement": "<p>Real Is Rare is built around the things that cannot be copied: point of view, presence and the courage to be yourself.</p>",
+        "story": "<p>We make considered pieces for everyday lives in motion. Each collection begins with a feeling, then becomes a uniform for the people creating their own lane.</p><p>There is no formula for being original. That is the point. We keep the work honest, the details intentional and the community at the centre of everything we make.</p>",
+        "closing": "Wear what feels like you.",
+        "button_label": "Explore the collection",
+        "button_link": "/collections/all"
+      }
+    }
+  },
+  "order": ["our_story"]
+}

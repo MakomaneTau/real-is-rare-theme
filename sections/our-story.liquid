@@ -1,0 +1,51 @@
+{{ 'our-story.css' | asset_url | stylesheet_tag }}
+
+<section class="our-story" aria-labelledby="OurStoryTitle-{{ section.id }}">
+  <div class="our-story__intro">
+    {% if section.settings.eyebrow != blank %}
+      <p class="our-story__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {% endif %}
+    <h1 class="our-story__title" id="OurStoryTitle-{{ section.id }}">{{ section.settings.heading | escape }}</h1>
+  </div>
+
+  <div class="our-story__hero">
+    {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: class: 'our-story__image', loading: 'eager', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', alt: section.settings.hero_image.alt | default: section.settings.heading }}
+    {% else %}
+      <div class="our-story__placeholder">
+        {{ 'hero-apparel-1' | placeholder_svg_tag }}
+        <span>Add a campaign photograph</span>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="our-story__body">
+    <div class="our-story__statement rte">{{ section.settings.statement }}</div>
+    <div class="our-story__copy rte">{{ section.settings.story }}</div>
+  </div>
+
+  {% if section.settings.closing != blank %}
+    <p class="our-story__closing">{{ section.settings.closing | escape }}</p>
+  {% endif %}
+
+  {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+    <a class="our-story__link" href="{{ section.settings.button_link }}">{{ section.settings.button_label | escape }} <span aria-hidden="true">→</span></a>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Our story",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "REAL IS RARE / OUR STORY" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Made for the ones who move differently." },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero photograph" },
+    { "type": "richtext", "id": "statement", "label": "Statement", "default": "<p>Real Is Rare is built around the things that cannot be copied: point of view, presence and the courage to be yourself.</p>" },
+    { "type": "richtext", "id": "story", "label": "Story", "default": "<p>We make considered pieces for everyday lives in motion. Each collection begins with a feeling, then becomes a uniform for the people creating their own lane.</p><p>There is no formula for being original. That is the point. We keep the work honest, the details intentional and the community at the centre of everything we make.</p>" },
+    { "type": "text", "id": "closing", "label": "Closing line", "default": "Wear what feels like you." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Explore the collection" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Our story" }]
+}
+{% endschema %}
