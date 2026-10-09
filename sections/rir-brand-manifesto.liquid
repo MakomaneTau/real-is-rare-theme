@@ -1,0 +1,63 @@
+<div class="rir-manifesto" aria-labelledby="RirManifesto-{{ section.id }}">
+  <div class="rir-section__inner">
+    <div class="rir-manifesto__captions"><p>{{ section.settings.top_left | escape }}</p><p>{{ section.settings.top_right | escape }}</p></div>
+    <h2 id="RirManifesto-{{ section.id }}" class="rir-manifesto__statement"><span>{{ section.settings.first_line | escape }}</span><span>{{ section.settings.second_line | escape }}</span></h2>
+    <div class="rir-manifesto__captions"><p>{{ section.settings.bottom_left | escape }}</p><p>{{ section.settings.bottom_right | escape }}</p></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Brand Manifesto",
+  "tag": "section",
+  "class": "rir-home-section",
+  "enabled_on": {
+    "templates": [
+      "index"
+    ]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "top_left",
+      "label": "top left",
+      "default": "MORE THAN WHAT YOU WEAR."
+    },
+    {
+      "type": "text",
+      "id": "top_right",
+      "label": "top right",
+      "default": "IT'S WHO YOU ARE."
+    },
+    {
+      "type": "text",
+      "id": "first_line",
+      "label": "first line",
+      "default": "REAL IS A MINDSET."
+    },
+    {
+      "type": "text",
+      "id": "second_line",
+      "label": "second line",
+      "default": "RARE IS A LIFESTYLE."
+    },
+    {
+      "type": "text",
+      "id": "bottom_left",
+      "label": "bottom left",
+      "default": "NO IMITATIONS. NO COMPROMISES."
+    },
+    {
+      "type": "text",
+      "id": "bottom_right",
+      "label": "bottom right",
+      "default": "REAL IS RARE. ALWAYS."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Manifesto"
+    }
+  ]
+}
+{% endschema %}

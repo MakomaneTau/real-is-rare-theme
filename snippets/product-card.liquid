@@ -3,6 +3,9 @@
   It is used in the product block, featured product block, and the product card block.
   The product object is null or when placeholders are rendered.
 
+  @param {boolean} [editorial] - Use the homepage editorial presentation
+  @param {string} [card_instance_id] - Unique section and group identifier
+  @param {string} [badge] - Merchant-authorized collection label
   @param {object} product - The product object
   @param {object} children - The children of the product card
   @param {object} [block] - The block object
@@ -11,6 +14,12 @@
 {%- enddoc -%}
 
 {% assign block_settings = block.settings %}
+{% assign card_instance_id = card_instance_id | default: block.id %}
+{% if editorial %}
+  {% capture children %}
+    {% render 'rir-product-card-content', product: product, badge: badge %}
+  {% endcapture %}
+{% endif %}
 
 {% style %}
   {% if request.visual_preview_mode %}
@@ -32,7 +41,7 @@
     assign has_mobile_quick_add = true
   endif
 
-  assign product_card_id = 'product-card-link-' | append: block.id | append: '-' | append: product.id
+  assign product_card_id = 'product-card-link-' | append: card_instance_id | append: '-' | append: product.id
   assign product_card_gap_value = product_card_gap | default: block_settings.product_card_gap
 
   # variant_to_link drives the featured image used by the main-product view transition.
@@ -60,10 +69,10 @@
 %}
 
 <product-card
-  class="product-card size-style"
+  class="product-card size-style{% if editorial %} rir-product-card{% endif %}"
   style="{% render 'size-style', settings: block_settings %}"
   data-product-id="{{ product.id }}"
-  id="product-card-{{ block.id }}"
+  id="product-card-{% if editorial %}{{ card_instance_id }}-{{ product.id }}{% else %}{{ block.id }}{% endif %}"
   {% if settings.transition_to_main_product %}
     data-product-transition="true"
     data-featured-media-url="{{ featured_media_url }}"
@@ -84,6 +93,7 @@
       {% # Link to product.url so algorithmic variant relevance and tracking params are maintained. %}
       href="{{ product.url }}"
     {% endunless %}
+    {% if editorial %}tabindex="-1" aria-hidden="true"{% endif %}
     class="product-card__link"
     ref="productCardLink"
     aria-label="{{ product.title | escape }}"
@@ -114,6 +124,12 @@
     "
   >
     {{ children }}
+      {% unless children contains '<product-price' %}
+        <product-price class="rir-card__price" data-product-id="{{ product.id }}">
+          {% render 'price', product_resource: product, show_sale_price_first: true %}
+        </product-price>
+      {% endunless %}
+    {% endunless %}
   </div>
 </product-card>
 

@@ -1244,17 +1244,59 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "rir_just_dropped": {
+      "type": "rir-just-dropped",
+      "settings": {
+        "eyebrow": "NEW RELEASES / JUST DROPPED",
+        "heading": "JUST DROPPED.",
+        "subtitle": "The latest from Real is Rare.",
+        "cta_label": "SHOP THE DROP",
+        "show_badges": true,
+        "card_count": "3",
+        "tile_background": "#f4f4f2"
+      }
+    },
+    "rir_stay_in_rotation": {
+      "type": "rir-stay-in-rotation",
+      "settings": {
+        "eyebrow": "THE EVERYDAY ROTATION",
+        "heading": "STAY IN ROTATION.",
+        "subtitle": "Selected pieces for your everyday rotation.",
+        "collection": "all-season-essentials",
+        "outerwear_collection": "jackets",
+        "sets_collection": "tracksuits-sets",
+        "cta_label": "SHOP ALL PIECES",
+        "show_badges": true,
+        "card_count": 4,
+        "tile_background": "#f4f4f2",
+        "empty_text": "No pieces in this selection yet. Explore All Pieces."
+      }
+    },
+    "rir_brand_manifesto": {
+      "type": "rir-brand-manifesto",
+      "settings": {
+        "top_left": "MORE THAN WHAT YOU WEAR.",
+        "top_right": "IT'S WHO YOU ARE.",
+        "first_line": "REAL IS A MINDSET.",
+        "second_line": "RARE IS A LIFESTYLE.",
+        "bottom_left": "NO IMITATIONS. NO COMPROMISES.",
+        "bottom_right": "REAL IS RARE. ALWAYS."
+      }
     }
   },
   "order": [
     "1788961065d79ed462",
     "hero_iyt6zg",
+    "rir_just_dropped",
     "collection_list_kVhprE",
+    "rir_stay_in_rotation",
     "featured_product_information_yhipxg",
     "shop_the_look",
     "product_list_xbHyBT",
     "campaign_pair",
     "product_list_AU6www",
-    "17888280657471e07b"
+    "17888280657471e07b",
+    "rir_brand_manifesto"
   ]
 }

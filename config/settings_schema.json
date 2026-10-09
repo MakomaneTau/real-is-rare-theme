@@ -2116,5 +2116,17 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Homepage editorial",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "rir_display_font",
+        "label": "Editorial display font",
+        "default": "oswald_n7",
+        "info": "Used only by Just Dropped, Stay in Rotation and Brand Manifesto. Existing theme typography is unchanged."
+      }
+    ]
   }
 ]

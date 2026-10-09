@@ -38,6 +38,17 @@
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
+    {% if request.page_type == 'index' %}
+      {{ 'rir-homepage.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'rir-rotation.js' | asset_url }}" type="module"></script>
+      {% style %}
+        {{ settings.rir_display_font | font_face: font_display: 'swap' }}
+        :root {
+          --rir-display-family: {{ settings.rir_display_font.family }}, {{ settings.rir_display_font.fallback_families }};
+          --rir-display-weight: {{ settings.rir_display_font.weight }};
+        }
+      {% endstyle %}
+    {% endif %}
     {%- render 'scripts' -%}
     {% if request.page_type == 'index' or request.page_type == 'collection' or request.page_type == 'product' %}
       <script src="{{ 'scroll-reveal.js' | asset_url }}" type="module"></script>
