@@ -60,6 +60,14 @@
   .rir-native-product-card [ref='productTitleLink'] { grid-column: 1 / -1; }
 }
 @media (max-width: 749px) {
+  /* Keep media and text on the same edge; legacy full-width galleries use negative margins. */
+  .product-grid-container .rir-native-product-card .product-card__content.product-card__content { padding-inline: 0; }
+  .product-grid-container .rir-native-product-card .card-gallery.card-gallery { margin-inline: 0; min-width: 0; }
+  .product-grid-container .rir-native-product-card [ref='productTitleLink'] { min-height: 3em; font: 600 13px/1.5 var(--font-accent--family); }
+  .rir-site-product-card .rir-card__arrow { width: 32px; height: 32px; inset-inline-end: 8px; inset-block-end: 8px; }
+  .rir-site-product-card .rir-card__arrow svg { width: 14px; height: 14px; }
+  .rir-native-product-card .card-gallery button.quick-add__button { --quick-add-collapsed-width: 32px; --quick-add-icon-width: 32px; width: 32px; height: 32px; inset-inline-start: 8px; inset-block-end: 8px; }
+  .rir-native-product-card .quick-add__button .svg-wrapper { width: 16px; height: 16px; }
   .rir-card__badge { inset: 10px auto auto 10px; padding: 5px 7px; font-size: 9px; }
   .resource-card[data-resource-type='product'] .resource-card__content { flex-wrap: wrap; gap: 4px 12px; }
 }
