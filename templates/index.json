@@ -402,50 +402,6 @@
         "link": ""
       }
     },
-    "campaign_pair": {
-      "type": "campaign-editorial",
-      "blocks": {
-        "portrait": {
-          "type": "look",
-          "settings": {
-            "image": "shopify://shop_images/imgi_36_730488844_18086758910438763_9216457943955402878_n.jpg",
-            "mobile_image": "shopify://shop_images/imgi_39_726860319_18086334932438763_5731259363412816850_n.jpg",
-            "alt": "",
-            "title": "",
-            "shot_brief": "Vertical 4:5 portrait of a model wearing the current drop in a real street location. Leave space around the subject.",
-            "products": [],
-            "link": "",
-            "link_label": "Shop this look"
-          }
-        },
-        "detail": {
-          "type": "look",
-          "settings": {
-            "image": "shopify://shop_images/imgi_39_726860319_18086334932438763_5731259363412816850_n.jpg",
-            "mobile_image": "shopify://shop_images/imgi_55_730779680_18086757860438763_7268828102137207067_n.jpg",
-            "alt": "",
-            "title": "",
-            "shot_brief": "Vertical 4:5 close-up of the garment on the model: print, embroidery, texture or sleeve. Use lighting and colors that match the portrait.",
-            "products": [],
-            "link": "",
-            "link_label": "Shop this look"
-          }
-        }
-      },
-      "block_order": [
-        "portrait",
-        "detail"
-      ],
-      "settings": {
-        "layout": "pair",
-        "page_heading": false,
-        "eyebrow": "IN THE FRAME",
-        "heading": "Your 2026 World Cup Quest",
-        "intro": "",
-        "link_label": "View Quest T-Shirt",
-        "link": "shopify://products/world-cup-quest-jersey"
-      }
-    },
     "product_list_AU6www": {
       "type": "rir-preorders",
       "name": "Pre-Orders",
@@ -545,6 +501,50 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "campaign_pair": {
+      "type": "campaign-editorial",
+      "blocks": {
+        "portrait": {
+          "type": "look",
+          "settings": {
+            "image": "shopify://shop_images/imgi_36_730488844_18086758910438763_9216457943955402878_n.jpg",
+            "mobile_image": "shopify://shop_images/imgi_39_726860319_18086334932438763_5731259363412816850_n.jpg",
+            "alt": "",
+            "title": "",
+            "shot_brief": "Vertical 4:5 portrait of a model wearing the current drop in a real street location. Leave space around the subject.",
+            "products": [],
+            "link": "",
+            "link_label": "Shop this look"
+          }
+        },
+        "detail": {
+          "type": "look",
+          "settings": {
+            "image": "shopify://shop_images/imgi_39_726860319_18086334932438763_5731259363412816850_n.jpg",
+            "mobile_image": "shopify://shop_images/imgi_55_730779680_18086757860438763_7268828102137207067_n.jpg",
+            "alt": "",
+            "title": "",
+            "shot_brief": "Vertical 4:5 close-up of the garment on the model: print, embroidery, texture or sleeve. Use lighting and colors that match the portrait.",
+            "products": [],
+            "link": "",
+            "link_label": "Shop this look"
+          }
+        }
+      },
+      "block_order": [
+        "portrait",
+        "detail"
+      ],
+      "settings": {
+        "layout": "pair",
+        "page_heading": false,
+        "eyebrow": "IN THE FRAME",
+        "heading": "Your 2026 World Cup Quest",
+        "intro": "",
+        "link_label": "View Quest T-Shirt",
+        "link": "shopify://products/world-cup-quest-jersey"
       }
     },
     "product_list_xbHyBT": {
@@ -763,9 +763,9 @@
     "collection_list_kVhprE",
     "rir_stay_in_rotation",
     "shop_the_look",
+    "product_list_AU6www",
     "17888280657471e07b",
     "campaign_pair",
-    "product_list_AU6www",
     "product_list_xbHyBT",
     "rir_brand_manifesto"
   ]

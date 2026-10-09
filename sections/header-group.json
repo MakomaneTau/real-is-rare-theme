@@ -16,6 +16,7 @@
       "blocks": {
         "ai_gen_block_bc1f26d_wd397y": {
           "type": "ai_gen_block_bc1f26d",
+          "disabled": true,
           "settings": {
             "banner_text": "New Drop Coming Soon",
             "target_date": "2026-10-10",
