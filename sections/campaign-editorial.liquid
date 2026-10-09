@@ -34,10 +34,9 @@
           {% if block.settings.products != blank %}
             <div class="rare-editorial__products">
               {% for look_product in block.settings.products %}
-                <a class="rare-editorial__product" href="{{ look_product.url }}">
-                  {% if look_product.featured_image %}{{ look_product.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: look_product.title }}{% endif %}
-                  <span>{{ look_product.title | escape }}<span class="rare-editorial__product-price">{{ look_product.price | money }}{% unless look_product.available %} · {{ 'content.product_badge_sold_out' | t }}{% endunless %}</span></span>
-                </a>
+                {% assign card_instance = section.id | append: '-' | append: block.id | append: '-' | append: forloop.index %}
+                {% render 'product-card', product: look_product, editorial: true, card_instance_id: card_instance, product_view_context: 'page' %}
+
               {% endfor %}
             </div>
           {% elsif section.settings.layout == 'shop' %}

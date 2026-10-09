@@ -147,6 +147,9 @@
         </div>
       {%- endif -%}
     {%- endif -%}
+    {% if resource_type == 'product' %}
+      <span class="rir-card__arrow" aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+    {% endif %}
   </div>
 
   <div class="resource-card__content">

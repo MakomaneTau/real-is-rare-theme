@@ -16,28 +16,6 @@
 .rir-drop__grid > li:nth-child(3) { margin-top: 96px; }
 .rir-drop__grid > li:nth-child(4) { margin-top: 144px; }
 .rir-drop__grid > li:first-child .rir-card__media { aspect-ratio: 7 / 8; }
-.rir-section .rir-product-card { display: block; width: 100%; height: auto; transform: none; box-shadow: none; --product-card-gap: 12px; --product-card-alignment: stretch; }
-.rir-product-card .product-card__content { width: 100%; padding: 0; color: #0b0b0b; gap: 12px; overflow: visible; }
-.rir-product-card > .product-card__link { pointer-events: none; }
-.rir-card__media { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--rir-tile-background, #f4f4f2); border: 1px solid #e5e5e2; color: #0b0b0b; }
-.rir-card__image { display: block; width: 100%; height: 100%; object-fit: contain; }
-.rir-card__image--secondary { position: absolute; inset: 0; opacity: 0; background: var(--rir-tile-background, #f4f4f2); }
-.rir-card__placeholder { width: 100%; height: 100%; fill: #666; }
-.rir-card__badge { position: absolute; inset: 16px auto auto 16px; background: #fff; color: #0b0b0b; border: 1px solid #d3d3d0; padding: 7px 9px; font-size: 10px; font-weight: 600; line-height: 1.4; text-transform: uppercase; }
-.rir-card__arrow { position: absolute; inset: auto 12px 12px auto; display: grid; place-items: center; width: 44px; height: 44px; background: #fff; border: 1px solid #d3d3d0; }
-.rir-card__arrow svg { width: 18px; height: 18px; transform: rotate(-45deg); }
-.rir-card__details { display: flex; justify-content: space-between; align-items: start; gap: 12px; font-size: 13px; line-height: 1.5; }
-.rir-card__title { color: #0b0b0b; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
-.rir-card__title:hover { text-decoration: underline; }
-.rir-card__price { flex-shrink: 0; text-align: end; font-size: 13px; color: #0b0b0b; }
-.rir-card__price .compare-at-price { display: block; color: #555; }
-.rir-card__swatches { display: flex; flex-wrap: wrap; gap: 0; }
-.rir-card__swatch { display: grid; place-items: center; width: 44px; height: 44px; color: #0b0b0b; --variant-swatch-width: 18px; --variant-swatch-height: 18px; }
-@media (prefers-reduced-motion: no-preference) {
-  .rir-card__image--secondary { transition: opacity 180ms ease; }
-  .rir-card__media:is(:hover,:focus-visible) .rir-card__image--secondary { opacity: 1; }
-}
-
 .rir-rotation__grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 28px 20px; }
 .rir-rotation__filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .rir-rotation__filter { min-height: 44px; padding: 10px 18px; background: #fff; border: 1px solid #c8c8c5; color: #0b0b0b; border-radius: 0; font: 600 12px/1.4 var(--font-accent--family); cursor: pointer; }

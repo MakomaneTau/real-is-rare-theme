@@ -1,0 +1,9 @@
+{%- doc -%}
+  Product detail arrow for native card galleries.
+  @param {product} product - Shopify product
+{%- enddoc -%}
+{% if product != blank %}
+  <a class="rir-card__arrow rir-card__arrow-link" href="{{ product.url }}" aria-label="{{ 'accessibility.show_product_details' | t: product_name: product.title | escape }}">
+    {{ 'icon-arrow.svg' | inline_asset_content }}
+  </a>
+{% endif %}

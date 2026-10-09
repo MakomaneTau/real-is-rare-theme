@@ -15,6 +15,9 @@
 
 {% assign block_settings = block.settings %}
 {% assign card_instance_id = card_instance_id | default: block.id %}
+{% if badge == 'THE ROTATION' and product_view_context != 'homepage-rotation' %}
+  {% assign badge = '' %}
+{% endif %}
 {% if editorial %}
   {% capture children %}
     {% render 'rir-product-card-content', product: product, badge: badge %}
@@ -69,7 +72,7 @@
 %}
 
 <product-card
-  class="product-card size-style{% if editorial %} rir-product-card{% endif %}"
+  class="product-card size-style rir-site-product-card{% if editorial %} rir-product-card{% else %} rir-native-product-card{% endif %}"
   style="{% render 'size-style', settings: block_settings %}"
   data-product-id="{{ product.id }}"
   id="product-card-{% if editorial %}{{ card_instance_id }}-{{ product.id }}{% else %}{{ block.id }}{% endif %}"
@@ -124,6 +127,11 @@
     "
   >
     {{ children }}
+    {% unless editorial %}
+      {% unless children contains 'ref="productTitleLink"' %}
+        {% assign fallback_title = 'content.product_card_placeholder' | t %}
+        <a class="rir-card__title" ref="productTitleLink" {% if product != blank %}href="{{ product.url }}"{% endif %}>{{ product.title | default: fallback_title | escape }}</a>
+      {% endunless %}
       {% unless children contains '<product-price' %}
         <product-price class="rir-card__price" data-product-id="{{ product.id }}">
           {% render 'price', product_resource: product, show_sale_price_first: true %}
