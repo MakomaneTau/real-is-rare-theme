@@ -16,7 +16,7 @@
 .rir-drop__grid > li:nth-child(3) { margin-top: 96px; }
 .rir-drop__grid > li:nth-child(4) { margin-top: 144px; }
 .rir-drop__grid > li:first-child .rir-card__media { aspect-ratio: 7 / 8; }
-.rir-rotation__grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 28px 20px; }
+.rir-rotation__grid, .rir-preorder__grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 28px 20px; }
 .rir-rotation__filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .rir-rotation__filter { min-height: 44px; padding: 10px 18px; background: #fff; border: 1px solid #c8c8c5; color: #0b0b0b; border-radius: 0; font: 600 12px/1.4 var(--font-accent--family); cursor: pointer; }
 .rir-rotation__filter[aria-pressed='true'] { background: #0b0b0b; color: #fff; border-color: #0b0b0b; }
@@ -35,14 +35,14 @@
   .rir-drop__grid, .rir-drop__grid--4 { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .rir-drop__grid > li:nth-child(n) { margin-top: 0; }
   .rir-drop__grid > li:first-child .rir-card__media { aspect-ratio: 4 / 5; }
-  .rir-rotation__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .rir-rotation__grid, .rir-preorder__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 749px) {
   .rir-section__header { flex-direction: column; align-items: start; gap: 16px; margin-bottom: 24px; }
   .rir-drop__grid, .rir-drop__grid--4 { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 12px; }
   .rir-drop__grid > li:nth-child(n) { margin-top: 0; }
   .rir-drop__grid > li:first-child .rir-card__media { aspect-ratio: 4 / 5; }
-  .rir-rotation__grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 12px; }
+  .rir-rotation__grid, .rir-preorder__grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 12px; }
   .rir-rotation__filter { padding-inline: 12px; }
   .rir-manifesto__statement { font-size: clamp(40px, 10vw, 74px); }
   /* Preserve Atelier's five grid areas, including account access in leftB. */
