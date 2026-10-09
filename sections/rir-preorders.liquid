@@ -1,9 +1,5 @@
 {% liquid
   assign preorder_collection = section.settings.collection
-  assign badge = ''
-  if section.settings.show_badges
-    assign badge = 'PRE-ORDER'
-  endif
   assign cta_url = section.settings.cta_link | default: preorder_collection.url
 %}
 {% if preorder_collection.products.size > 0 or request.design_mode %}
@@ -30,7 +26,7 @@
         <ul class="rir-preorder__grid" role="list" aria-label="{{ section.settings.heading | escape }}">
           {% for product in preorder_collection.products limit: section.settings.card_count %}
             {% assign instance = section.id | append: '-preorder-' | append: forloop.index %}
-            <li>{% render 'product-card', product: product, editorial: true, card_instance_id: instance, badge: badge, product_view_context: 'homepage-preorders' %}</li>
+            <li>{% render 'product-card', product: product, editorial: true, card_instance_id: instance, product_view_context: 'homepage-preorders' %}</li>
           {% endfor %}
         </ul>
       {% else %}
@@ -85,13 +81,6 @@
       "type": "url",
       "id": "cta_link",
       "label": "Collection link override"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_badges",
-      "label": "Show PRE-ORDER badges",
-      "default": true,
-      "info": "Labels the made-to-order products in this section."
     },
     {
       "type": "select",

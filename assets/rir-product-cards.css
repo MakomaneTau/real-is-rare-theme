@@ -81,3 +81,7 @@ ul[product-grid-view='zoom-out'] .rir-native-product-card .rir-card__arrow-link 
 @media (max-width: 359px) {
   .rare-editorial__products:has(> .rir-site-product-card) { grid-template-columns: minmax(0,1fr); }
 }
+
+/* Timesact applies rounded badge corners inline; keep its pre-order labels rectangular site-wide. */
+.timesact-badge-preOrder > span,
+.timesact-badge-rounded-span-preorder { border-radius: 0 !important; }
