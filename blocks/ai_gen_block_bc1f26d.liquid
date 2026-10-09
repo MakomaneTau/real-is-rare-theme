@@ -33,8 +33,8 @@
     }
 
     .ai-countdown-banner__text-{{ ai_gen_id }} {
-      font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
-      font-weight: {{ block.settings.heading_font.weight }};
+      font-family: var(--font-heading--family);
+      font-weight: var(--font-heading--weight);
       font-size: {{ block.settings.text_size | divided_by: 1.2 }}px;
       margin: 0;
       text-transform: {{ block.settings.text_transform }};
@@ -58,8 +58,8 @@
     }
 
     .ai-countdown-banner__value-{{ ai_gen_id }} {
-      font-family: {{ block.settings.timer_font.family }}, {{ block.settings.timer_font.fallback_families }};
-      font-weight: {{ block.settings.timer_font.weight }};
+      font-family: var(--font-body--family);
+      font-weight: var(--font-body--weight);
       font-size: {{ block.settings.timer_size | times: 0.8 }}px;
       line-height: 1;
       color: {{ block.settings.timer_color }};
@@ -83,8 +83,8 @@
     }
 
     .ai-countdown-banner__expired-{{ ai_gen_id }} {
-      font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
-      font-weight: {{ block.settings.heading_font.weight }};
+      font-family: var(--font-heading--family);
+      font-weight: var(--font-heading--weight);
       font-size: {{ block.settings.text_size | divided_by: 1.2 }}px;
       margin: 0;
     }

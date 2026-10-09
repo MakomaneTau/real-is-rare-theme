@@ -117,7 +117,8 @@
     font-size: {{ block.settings.edition_size }}px;
     color: {{ block.settings.edition_color }};
     font-weight: 600;
-    font-family: monospace;
+    font-family: var(--font-body--family);
+    font-variant-numeric: tabular-nums;
   }
 
   .ai-limited-poster-cta-{{ ai_gen_id }} {

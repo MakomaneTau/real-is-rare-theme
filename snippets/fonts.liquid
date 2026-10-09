@@ -1,12 +1,17 @@
-{%- unless settings.type_body_font.system? -%}
-  {{ settings.type_body_font | font_url | preload_tag: as: 'font', type: 'font/woff2', fetchpriority: 'low' }}
-{%- endunless -%}
-{%- unless settings.type_subheading_font.system? -%}
-  {{ settings.type_subheading_font | font_url | preload_tag: as: 'font', type: 'font/woff2', fetchpriority: 'low' }}
-{%- endunless -%}
-{%- unless settings.type_heading_font.system? -%}
-  {{ settings.type_heading_font | font_url | preload_tag: as: 'font', type: 'font/woff2', fetchpriority: 'low' }}
-{%- endunless -%}
-{%- unless settings.type_accent_font.system? -%}
-  {{ settings.type_accent_font | font_url | preload_tag: as: 'font', type: 'font/woff2', fetchpriority: 'low' }}
-{%- endunless -%}
+{%- liquid
+  assign font_settings = 'type_body_font,rir_display_font,type_accent_font' | split: ','
+  assign preloaded_fonts = ''
+  for font_setting in font_settings
+    assign selected_font = settings[font_setting]
+    if font_setting == 'rir_display_font'
+      assign selected_font = selected_font | default: settings.type_heading_font
+    endif
+    unless selected_font.system?
+      assign selected_font_url = selected_font | font_url
+      unless preloaded_fonts contains selected_font_url
+        echo selected_font_url | preload_tag: as: 'font', type: 'font/woff2', fetchpriority: 'low'
+        assign preloaded_fonts = preloaded_fonts | append: selected_font_url | append: '|'
+      endunless
+    endunless
+  endfor
+-%}

@@ -12,7 +12,8 @@
     assign primary_font_italic_face_id = '[primary_font_italic_family]-[primary_font_italic_weight]-[primary_font_italic_style]|' | replace: '[primary_font_italic_family]', primary_font_italic.family | replace: '[primary_font_italic_weight]', primary_font_italic.weight | replace: '[primary_font_italic_style]', primary_font_italic.style
     assign primary_font_bold_italic_face_id = '[primary_font_bold_italic_family]-[primary_font_bold_italic_weight]-[primary_font_bold_italic_style]|' | replace: '[primary_font_bold_italic_family]', primary_font_bold_italic.family | replace: '[primary_font_bold_italic_weight]', primary_font_bold_italic.weight | replace: '[primary_font_bold_italic_style]', primary_font_bold_italic.style
 
-    assign secondary_font = settings.type_subheading_font
+    assign display_font = settings.rir_display_font | default: settings.type_heading_font
+    assign secondary_font = display_font
     assign secondary_font_bold = secondary_font | font_modify: 'weight', 'bold'
     assign secondary_font_italic = secondary_font | font_modify: 'style', 'italic'
     assign secondary_font_bold_italic = secondary_font_bold | font_modify: 'style', 'italic'
@@ -22,7 +23,7 @@
     assign secondary_font_italic_face_id = '[secondary_font_italic_family]-[secondary_font_italic_weight]-[secondary_font_italic_style]|' | replace: '[secondary_font_italic_family]', secondary_font_italic.family | replace: '[secondary_font_italic_weight]', secondary_font_italic.weight | replace: '[secondary_font_italic_style]', secondary_font_italic.style
     assign secondary_font_bold_italic_face_id = '[secondary_font_bold_italic_family]-[secondary_font_bold_italic_weight]-[secondary_font_bold_italic_style]|' | replace: '[secondary_font_bold_italic_family]', secondary_font_bold_italic.family | replace: '[secondary_font_bold_italic_weight]', secondary_font_bold_italic.weight | replace: '[secondary_font_bold_italic_style]', secondary_font_bold_italic.style
 
-    assign tertiary_font = settings.type_heading_font
+    assign tertiary_font = display_font
     assign tertiary_font_bold = tertiary_font | font_modify: 'weight', 'bold'
     assign tertiary_font_italic = tertiary_font | font_modify: 'style', 'italic'
     assign tertiary_font_bold_italic = tertiary_font_bold | font_modify: 'style', 'italic'
@@ -156,15 +157,18 @@
     --letter-spacing-md: 0.13em;
 
     /* Font families */
+    --rir-display-family: {{ display_font.family }}, {{ display_font.fallback_families }};
+    --rir-display-weight: {{ display_font.weight }};
+
     --font-body--family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
     --font-body--style: {{ settings.type_body_font.style }};
     --font-body--weight: {{ settings.type_body_font.weight }};
-    --font-subheading--family: {{ settings.type_subheading_font.family }}, {{ settings.type_subheading_font.fallback_families }};
-    --font-subheading--style: {{ settings.type_subheading_font.style }};
-    --font-subheading--weight: {{ settings.type_subheading_font.weight }};
-    --font-heading--family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
-    --font-heading--style: {{ settings.type_heading_font.style }};
-    --font-heading--weight: {{ settings.type_heading_font.weight }};
+    --font-subheading--family: {{ secondary_font.family }}, {{ secondary_font.fallback_families }};
+    --font-subheading--style: {{ secondary_font.style }};
+    --font-subheading--weight: {{ secondary_font.weight }};
+    --font-heading--family: {{ tertiary_font.family }}, {{ tertiary_font.fallback_families }};
+    --font-heading--style: {{ tertiary_font.style }};
+    --font-heading--weight: {{ tertiary_font.weight }};
     --font-accent--family: {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};
     --font-accent--style: {{ settings.type_accent_font.style }};
     --font-accent--weight: {{ settings.type_accent_font.weight }};
