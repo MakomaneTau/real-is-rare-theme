@@ -12,7 +12,13 @@
     assign use_inverse_logo = true
   endif
 
-  if use_inverse_logo
+  # Render a mobile-only inverse logo without changing desktop logo selection.
+  assign homepage_mobile_inverse = false
+  if template.name == 'index' and settings.logo_inverse != blank and use_inverse_logo == false
+    assign homepage_mobile_inverse = true
+  endif
+
+  if use_inverse_logo or homepage_mobile_inverse
     if settings.logo_inverse != blank
       assign inverse_logo = settings.logo_inverse
     else
@@ -65,9 +71,9 @@
     %}
   </span>
 
-  {% if use_inverse_logo %}
+  {% if use_inverse_logo or homepage_mobile_inverse %}
     <span
-      class="header-logo__image-container header-logo__image-container--inverse"
+      class="header-logo__image-container {% if homepage_mobile_inverse %}rir-header-mobile-logo{% else %}header-logo__image-container--inverse{% endif %}"
       data-testid="header-logo-inverse"
     >
       {% render 'image',
@@ -133,6 +139,10 @@
 
   .header-logo:has(.header-logo__image-container--inverse) .header-logo__image-container--original {
     display: var(--header-logo-display, block);
+  }
+
+  .rir-header-mobile-logo {
+    display: none;
   }
 
   .header-logo__image-container--inverse {

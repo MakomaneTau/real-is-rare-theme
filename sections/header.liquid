@@ -325,6 +325,7 @@
 
 <header-component
   id="header-component"
+  {% if request.page_type == 'index' %}data-rir-homepage{% endif %}
   class="{{ class }}"
   data-theme-color="rgb({{ section.settings.background_color_top.rgb | default: settings.page_background_color.rgb }})"
   data-bubble-style="{{ section.settings.bubble_style }}"

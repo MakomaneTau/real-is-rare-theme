@@ -67,6 +67,22 @@
   .rir-rotation__grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 12px; }
   .rir-rotation__filter { padding-inline: 12px; }
   .rir-manifesto__statement { font-size: clamp(40px, 10vw, 74px); }
+  /* Preserve Atelier's five grid areas, including account access in leftB. */
+  #header-component[data-rir-homepage] { --color-background: #090909; --color-background-rgb: 9 9 9; --color-foreground: #fff; --color-foreground-rgb: 255 255 255; --color-primary: #fff; --color-account-icon: #fff; --color-background-top-row: #090909; --cart-bubble-background: #fff; --cart-bubble-text: #090909; background: #090909; }
+  #header-component[data-rir-homepage] .header__row--top { background: #090909; color: #fff; --color-background: #090909; --color-foreground: #fff; padding-inline: max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right)); }
+  #header-component[data-rir-homepage] .header__columns { grid-template-columns: 44px 44px minmax(0,1fr) 44px 44px; column-gap: 0; min-height: 64px; padding: 0; }
+  #header-component[data-rir-homepage] header-actions { display: contents; }
+  #header-component[data-rir-homepage] header-actions > .account-button { grid-area: leftB; margin: 0; }
+  #header-component[data-rir-homepage] header-actions > :is(button,a) { grid-area: rightB; margin: 0; }
+  #header-component[data-rir-homepage] .search-action { grid-area: rightA; }
+  #header-component[data-rir-homepage] :is(.header-actions__action,.header__icon--menu) { min-width: 44px; min-height: 44px; color: #fff; }
+  #header-component[data-rir-homepage] .header-logo { min-width: 0; max-width: 100%; }
+  #header-component[data-rir-homepage] .header-logo:has(.header-logo__image-container--inverse, .rir-header-mobile-logo) .header-logo__image-container--original { display: none; }
+  #header-component[data-rir-homepage] :is(.header-logo__image-container--inverse, .rir-header-mobile-logo) { display: flex; }
+  #header-component[data-rir-homepage] .header-logo__image-container { width: min(142px,100%); max-width: 100%; height: 56px; align-items: center; overflow: hidden; }
+  #header-component[data-rir-homepage] .header-logo:not(:has(.header-logo__image-container--inverse, .rir-header-mobile-logo)) .header-logo__image-container--original { display: flex; align-items: center; }
+  #header-component[data-rir-homepage] .header-logo__image { width: 100%; max-width: 100%; height: 100%; object-fit: contain; }
+  #header-component[data-rir-homepage] :is(a,button,summary):focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 }
 @media (max-width: 359px) {
   .rir-rotation__grid { grid-template-columns: minmax(0,1fr); }
