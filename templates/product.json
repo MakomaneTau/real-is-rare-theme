@@ -581,13 +581,12 @@
                   },
                   "blocks": {
                     "text_CayfE3": {
-                      "type": "text",
+                      "type": "product-title",
                       "settings": {
-                        "text": "<h4>{{ closest.product.title }}</h4>",
                         "width": "100%",
-                        "max_width": "normal",
+                        "max_width": "none",
                         "alignment": "left",
-                        "type_preset": "h5",
+                        "type_preset": "paragraph",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
