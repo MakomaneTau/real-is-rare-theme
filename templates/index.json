@@ -215,6 +215,20 @@
         "padding-block-end": 0
       }
     },
+    "rir_just_dropped": {
+      "type": "rir-just-dropped",
+      "settings": {
+        "eyebrow": "NEW RELEASES / JUST DROPPED",
+        "heading": "JUST DROPPED.",
+        "subtitle": "The latest from Real is Rare.",
+        "collection": "",
+        "cta_label": "SHOP THE DROP",
+        "cta_link": "",
+        "show_badges": true,
+        "tile_background": "#f4f4f2",
+        "card_count": "4"
+      }
+    },
     "collection_list_kVhprE": {
       "type": "collection-list",
       "blocks": {
@@ -336,354 +350,22 @@
         "padding-block-end": 2
       }
     },
-    "featured_product_information_yhipxg": {
-      "type": "featured-product-information",
-      "blocks": {
-        "media-gallery": {
-          "type": "_featured-product-information-carousel",
-          "static": true,
-          "settings": {
-            "aspect_ratio": "adapt",
-            "constrain_to_viewport": true,
-            "media_fit": "contain",
-            "media_radius": 0,
-            "extend_media": false,
-            "zoom": true,
-            "video_loop": false,
-            "hide_variants": true,
-            "icons_style": "chevron_large",
-            "slideshow_controls_style": "thumbnails",
-            "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "bottom",
-            "thumbnail_width": 60,
-            "thumbnail_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "product-details": {
-          "type": "_product-details",
-          "static": true,
-          "settings": {
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fill",
-            "details_position": "center",
-            "gap": 28,
-            "sticky_details_desktop": true,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "padding-block-start": 24,
-            "padding-block-end": 24,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "group_tJk7eA": {
-              "type": "group",
-              "name": "t:names.header",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fit",
-                "custom_height": 100,
-                "background_media": "none",
-                "background_color": "",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0,
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "text_featured_release": {
-                  "type": "text",
-                  "name": "Featured release eyebrow",
-                  "settings": {
-                    "text": "<p>Most Popular Item</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "custom",
-                    "font": "var(--font-body--family)",
-                    "font_size": "0.75rem",
-                    "line_height": "normal",
-                    "letter_spacing": "loose",
-                    "case": "uppercase",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "product_title_VTDTK3": {
-                  "type": "product-title",
-                  "name": "t:names.title",
-                  "settings": {
-                    "width": "100%",
-                    "max_width": "none",
-                    "alignment": "left",
-                    "type_preset": "h3",
-                    "font": "var(--font-heading--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "text_color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "price_wcLdQ8": {
-                  "type": "price",
-                  "name": "t:names.product_price",
-                  "settings": {
-                    "show_sale_price_first": true,
-                    "show_installments": true,
-                    "show_tax_info": true,
-                    "type_preset": "h3",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "text_color": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_featured_release",
-                "product_title_VTDTK3",
-                "price_wcLdQ8"
-              ]
-            },
-            "text_product_story": {
-              "type": "text",
-              "name": "Featured product story",
-              "settings": {
-                "text": "<p>A statement in restraint. Made for those who recognize value before the crowd does.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "loose",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "review_4hbMPH": {
-              "type": "review",
-              "name": "t:names.product_review_stars",
-              "settings": {
-                "stars_style": "shaded",
-                "show_number": true,
-                "text_color": "",
-                "type_preset": "paragraph",
-                "width": "100%",
-                "alignment": "left"
-              },
-              "blocks": {}
-            },
-            "variant_picker_kwdTUM": {
-              "type": "variant-picker",
-              "name": "t:names.product_variant_picker",
-              "settings": {
-                "variant_style": "buttons",
-                "show_swatches": true,
-                "option_label_text_color": "",
-                "variant_style_class": "default",
-                "custom_variant_background": "{{ settings.color_palette.background }}",
-                "custom_variant_text": "{{ settings.color_palette.foreground }}",
-                "custom_variant_border": "{{ settings.color_palette.foreground }}",
-                "selected_variant_style_class": "default",
-                "custom_selected_variant_background": "{{ settings.color_palette.foreground }}",
-                "custom_selected_variant_text": "{{ settings.color_palette.background }}",
-                "custom_selected_variant_border": "{{ settings.color_palette.foreground }}",
-                "alignment": "left",
-                "padding-block-start": 0,
-                "padding-block-end": 8,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "buy_buttons_qYbcHH": {
-              "type": "buy-buttons",
-              "name": "t:names.product_buy_buttons",
-              "settings": {
-                "stacking": true,
-                "text_color": "",
-                "show_pickup_availability": true,
-                "gift_card_form": true,
-                "recipient_button_style": "default",
-                "recipient_button_background": "{{ settings.color_palette.background }}",
-                "recipient_button_text": "{{ settings.color_palette.foreground }}",
-                "recipient_button_border": "{{ settings.color_palette.foreground }}",
-                "selected_recipient_button_style": "default",
-                "selected_recipient_button_background": "{{ settings.color_palette.foreground }}",
-                "selected_recipient_button_text": "{{ settings.color_palette.background }}",
-                "selected_recipient_button_border": "{{ settings.color_palette.foreground }}",
-                "input_style": "default",
-                "input_background_color": "{{ settings.color_palette.background }}",
-                "input_text_color": "{{ settings.color_palette.foreground }}",
-                "input_border_color": "{{ settings.color_palette.foreground }}",
-                "border_width": 1,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {
-                "quantity": {
-                  "type": "quantity",
-                  "static": true,
-                  "settings": {
-                    "input_style": "default",
-                    "input_background_color": "{{ settings.color_palette.background }}",
-                    "input_text_color": "{{ settings.color_palette.foreground }}",
-                    "input_border_color": "{{ settings.color_palette.foreground }}",
-                    "border_width": 1,
-                    "border_radius": 0
-                  },
-                  "blocks": {}
-                },
-                "add-to-cart": {
-                  "type": "add-to-cart",
-                  "static": true,
-                  "settings": {
-                    "style_class": "button",
-                    "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
-                    "custom_button_border": "{{ settings.color_palette.background }}"
-                  },
-                  "blocks": {}
-                },
-                "accelerated-checkout": {
-                  "type": "accelerated-checkout",
-                  "static": true,
-                  "settings": {},
-                  "blocks": {}
-                }
-              },
-              "block_order": []
-            },
-            "text_secure_checkout": {
-              "type": "text",
-              "name": "Checkout reassurance",
-              "settings": {
-                "text": "<p>Secure checkout</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "custom",
-                "font": "var(--font-body--family)",
-                "font_size": "0.75rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "{{ settings.color_palette.color1 }}",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "group_tJk7eA",
-            "text_product_story",
-            "review_4hbMPH",
-            "variant_picker_kwdTUM",
-            "buy_buttons_qYbcHH",
-            "text_secure_checkout"
-          ]
-        }
-      },
-      "name": "t:names.featured_product_information",
+    "rir_stay_in_rotation": {
+      "type": "rir-stay-in-rotation",
       "settings": {
-        "product": "uncuffed-cargo-pants-black",
-        "product_link_label": "View full product details",
-        "content_width": "content-center-aligned",
-        "desktop_media_position": "left",
-        "equal_columns": true,
-        "limit_details_width": true,
-        "gap": 48,
-        "background_color": "",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "eyebrow": "THE EVERYDAY ROTATION",
+        "heading": "STAY IN ROTATION.",
+        "subtitle": "Selected pieces for your everyday rotation.",
+        "collection": "all-season-essentials",
+        "cta_label": "SHOP ALL PIECES",
+        "cta_link": "",
+        "show_badges": true,
+        "tile_background": "#f4f4f2",
+        "card_count": 4,
+        "pants_collection": "",
+        "outerwear_collection": "jackets",
+        "sets_collection": "tracksuits-sets",
+        "empty_text": "No pieces in this selection yet. Explore All Pieces."
       }
     },
     "shop_the_look": {
@@ -1216,6 +898,7 @@
       "block_order": [
         "ai_gen_block_905a047_86WQww"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -1245,34 +928,6 @@
         "padding-block-end": 0
       }
     },
-    "rir_just_dropped": {
-      "type": "rir-just-dropped",
-      "settings": {
-        "eyebrow": "NEW RELEASES / JUST DROPPED",
-        "heading": "JUST DROPPED.",
-        "subtitle": "The latest from Real is Rare.",
-        "cta_label": "SHOP THE DROP",
-        "show_badges": true,
-        "card_count": "3",
-        "tile_background": "#f4f4f2"
-      }
-    },
-    "rir_stay_in_rotation": {
-      "type": "rir-stay-in-rotation",
-      "settings": {
-        "eyebrow": "THE EVERYDAY ROTATION",
-        "heading": "STAY IN ROTATION.",
-        "subtitle": "Selected pieces for your everyday rotation.",
-        "collection": "all-season-essentials",
-        "outerwear_collection": "jackets",
-        "sets_collection": "tracksuits-sets",
-        "cta_label": "SHOP ALL PIECES",
-        "show_badges": true,
-        "card_count": 4,
-        "tile_background": "#f4f4f2",
-        "empty_text": "No pieces in this selection yet. Explore All Pieces."
-      }
-    },
     "rir_brand_manifesto": {
       "type": "rir-brand-manifesto",
       "settings": {
@@ -1291,7 +946,6 @@
     "rir_just_dropped",
     "collection_list_kVhprE",
     "rir_stay_in_rotation",
-    "featured_product_information_yhipxg",
     "shop_the_look",
     "product_list_xbHyBT",
     "campaign_pair",
