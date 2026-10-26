@@ -62,24 +62,17 @@
         <p>{{ settings.halloween_date | escape }}</p>
       </div>
       {% if campaign_collection.products_count > 0 %}
-        {% paginate campaign_collection.products by 50 %}
-          <ul class="halloween-campaign__grid" role="list">
-            {% for product in campaign_collection.products %}
-              <li>
-                <article class="rir-site-product-card rir-product-card">
-                  <div class="product-card__content halloween-campaign__card-content">
-                    {% render 'rir-product-card-content', product: product %}
-                  </div>
-                </article>
-              </li>
-            {% endfor %}
-          </ul>
-          {% if paginate.pages > 1 %}
-            <nav aria-label="{{ 'content.pagination.nav_label' | t }}">
-              {{ paginate | default_pagination: anchor: 'HalloweenOffers' }}
-            </nav>
-          {% endif %}
-        {% endpaginate %}
+        <ul class="halloween-campaign__grid" role="list">
+          {% for product in campaign_collection.products limit: 10 %}
+            <li>
+              <article class="rir-site-product-card rir-product-card">
+                <div class="product-card__content halloween-campaign__card-content">
+                  {% render 'rir-product-card-content', product: product %}
+                </div>
+              </article>
+            </li>
+          {% endfor %}
+        </ul>
       {% elsif request.design_mode %}
         <p>Select a collection with published products in the Halloween campaign settings.</p>
       {% endif %}
