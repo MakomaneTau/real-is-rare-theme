@@ -8,7 +8,13 @@
   assign palette_lightest_brightness = -1
   assign palette_darkest = '#000000'
   assign palette_darkest_brightness = 256
-  assign page_background_brightness = settings.page_background_color | color_brightness
+  assign page_background_color = settings.page_background_color
+  assign page_text_color = settings.page_text_color
+  if settings.halloween_enabled
+    assign page_background_color = settings.halloween_background
+    assign page_text_color = settings.halloween_foreground
+  endif
+  assign page_background_brightness = page_background_color | color_brightness
 
   for palette_color in settings.color_palette
     if palette_color != blank and palette_color.alpha == 1
@@ -23,6 +29,10 @@
       endif
     endif
   endfor
+  if settings.halloween_enabled
+    assign palette_lightest = page_text_color
+    assign palette_darkest = page_background_color
+  endif
 %}
 
 {% comment %} Primary button effective values {% endcomment %}
@@ -166,17 +176,23 @@
 {% style %}
   /* Palette colors */
   :root {
-    --color-background: {{ settings.page_background_color }};
-    --color-background-rgb: {{ settings.page_background_color.rgb }};
-    --color-foreground: {{ settings.page_text_color }};
-    --color-foreground-rgb: {{ settings.page_text_color.rgb }};
-    --color-border: {{ settings.page_text_color }};
-    --color-border-rgb: {{ settings.page_text_color.rgb }};
+    --color-background: {{ page_background_color }};
+    --color-background-rgb: {{ page_background_color.rgb }};
+    --color-foreground: {{ page_text_color }};
+    --color-foreground-rgb: {{ page_text_color.rgb }};
+    --color-border: {{ page_text_color }};
+    --color-border-rgb: {{ page_text_color.rgb }};
+    {% if settings.halloween_enabled %}
+      --halloween-ink: {{ page_background_color }};
+      --halloween-ink-rgb: {{ page_background_color.rgb }};
+      --halloween-text: {{ page_text_color }};
+      --halloween-text-rgb: {{ page_text_color.rgb }};
+    {% endif %}
     --palette-lightest: {{ palette_lightest }};
     --palette-lightest-rgb: {{ palette_lightest.rgb }};
     --palette-darkest: {{ palette_darkest }};
     --palette-darkest-rgb: {{ palette_darkest.rgb }};
-    {% render 'brightness-opacities', background: settings.page_background_color %}
+    {% render 'brightness-opacities', background: page_background_color %}
 
     --color-primary-button-text: rgb({{ settings.palette_primary_button_text.rgba }});
     --color-primary-button-background: rgb({{ settings.palette_primary_button_background.rgba }});

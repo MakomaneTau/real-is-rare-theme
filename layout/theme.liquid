@@ -48,6 +48,18 @@
     {% endif %}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
+    {% if settings.halloween_enabled %}
+      {{ 'halloween.css' | asset_url | stylesheet_tag }}
+      {% style %}
+        @font-face {
+          font-family: 'Creepster';
+          src: url('{{ 'Creepster-Regular.ttf' | asset_url }}') format('truetype');
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+        }
+      {% endstyle %}
+    {% endif %}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
@@ -56,13 +68,16 @@
     {{ content_for_header }}
   </head>
 
-  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}{% if settings.halloween_enabled %} halloween-edition{% endif %}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
 
     {% render 'chat-drawer' %}
 
     <div class="page-wrapper">
       <div id="header-group">
+        {% if settings.halloween_enabled %}
+          {% render 'halloween-announcement' %}
+        {% endif %}
         {% sections 'header-group' %}
       </div>
 

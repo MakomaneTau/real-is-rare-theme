@@ -1,0 +1,10 @@
+{% doc %}
+  Seasonal announcement linked to the homepage campaign offers.
+{% enddoc %}
+<div class="halloween-announcement">
+  <a href="{{ routes.root_url }}#HalloweenOffers">
+    {{ settings.halloween_announcement | escape }}
+    <span aria-hidden="true"> / </span>
+    {{ settings.halloween_date | escape }}
+  </a>
+</div>

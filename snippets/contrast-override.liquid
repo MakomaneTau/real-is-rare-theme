@@ -48,6 +48,34 @@
   assign skip_contrast = skip_contrast | default: false, allow_false: true
   assign preset = preset | default: 'content'
 
+  # Keep neutral section surfaces on the edition palette instead of saved white backgrounds.
+  # Photo overlays and transparent fills retain their authored treatment.
+  assign default_text_color = settings.page_text_color
+  if settings.halloween_enabled
+    assign default_text_color = settings.halloween_foreground
+    if background_color != blank and background_color.alpha == 1 and skip_contrast == false
+      assign background_saturation = background_color | color_extract: 'saturation'
+      if background_saturation <= 20
+        assign background_color = settings.halloween_background
+      endif
+    endif
+    if text_color != blank and skip_contrast == false
+      assign seasonal_text_background = settings.halloween_background
+      if background_color != blank and background_color.alpha == 1
+        assign seasonal_text_background = background_color
+      endif
+      assign seasonal_text_contrast = text_color | color_contrast: seasonal_text_background
+      if seasonal_text_contrast < 4.5
+        assign seasonal_foreground_contrast = default_text_color | color_contrast: seasonal_text_background
+        if seasonal_foreground_contrast >= 4.5
+          assign text_color = default_text_color
+        else
+          assign text_color = settings.halloween_background
+        endif
+      endif
+    endif
+  endif
+
   assign has_background = false
   if background_color != blank and background_color.alpha != 0
     assign has_background = true
@@ -73,10 +101,10 @@
       assign effective_text_color = text_color
       assign effective_text_color_rgb = text_color.rgb
     else
-      assign page_text_contrast = background_color | color_contrast: settings.page_text_color
+      assign page_text_contrast = background_color | color_contrast: default_text_color
       if page_text_contrast >= 4.5
-        assign effective_text_color = settings.page_text_color
-        assign effective_text_color_rgb = settings.page_text_color.rgb
+        assign effective_text_color = default_text_color
+        assign effective_text_color_rgb = default_text_color.rgb
       else
         assign effective_text_color = contrast_var
         assign effective_text_color_rgb = contrast_rgb_var

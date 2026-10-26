@@ -2128,5 +2128,41 @@
         "info": "Used for headings throughout the storefront, including Just Dropped, Stay in Rotation and Brand Manifesto."
       }
     ]
+  },
+  {
+    "name": "Halloween edition",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "halloween_enabled",
+        "label": "Enable Halloween edition",
+        "default": false,
+        "info": "Shows the Halloween homepage campaign and announcement, and applies the seasonal palette. Disable to restore the original hero and storefront styling."
+      },
+      {
+        "type": "text",
+        "id": "halloween_announcement",
+        "label": "Announcement",
+        "default": "Halloween special"
+      },
+      {
+        "type": "text",
+        "id": "halloween_date",
+        "label": "Campaign date",
+        "default": "Friday, 30 October 2026"
+      },
+      {
+        "type": "color",
+        "id": "halloween_background",
+        "label": "Page background",
+        "default": "#09050e"
+      },
+      {
+        "type": "color",
+        "id": "halloween_foreground",
+        "label": "Page text",
+        "default": "#faf5ec"
+      }
+    ]
   }
 ]

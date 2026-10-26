@@ -1,0 +1,138 @@
+/* Seasonal campaign tokens. All overrides are scoped to the edition toggle. */
+.halloween-edition {
+  --halloween-panel: #160d21;
+  --halloween-raised: #211130;
+  --halloween-muted: #c4b5d0;
+  --halloween-orange: #ff6b21;
+  --halloween-lime: #c5ff35;
+  --halloween-purple: #b67cff;
+  --halloween-line: #3c254b;
+  --color-background: var(--halloween-ink);
+  --color-background-rgb: var(--halloween-ink-rgb);
+  --color-foreground: var(--halloween-text);
+  --color-foreground-rgb: var(--halloween-text-rgb);
+  --color-border: var(--halloween-line);
+  --color-border-rgb: 60 37 75;
+  --color-primary: var(--halloween-lime);
+  --color-primary-button-background: var(--halloween-lime);
+  --color-primary-button-border: var(--halloween-lime);
+  --color-primary-button-text: var(--halloween-ink);
+  --color-primary-button-hover-background: var(--halloween-text);
+  --color-primary-button-hover-border: var(--halloween-text);
+  --color-primary-button-hover-text: var(--halloween-ink);
+  --color-primary-button-focus-outline: var(--halloween-lime);
+  --color-secondary-button-background: var(--halloween-panel);
+  --color-secondary-button-border: var(--halloween-line);
+  --color-secondary-button-text: var(--halloween-text);
+  --color-secondary-button-hover-background: var(--halloween-raised);
+  --color-secondary-button-hover-border: var(--halloween-purple);
+  --color-secondary-button-hover-text: var(--halloween-text);
+  --color-input-background: var(--halloween-panel);
+  --color-input-text: var(--halloween-text);
+  --color-input-text-rgb: var(--halloween-text-rgb);
+  --color-input-border: var(--halloween-muted);
+  color-scheme: dark;
+  color: var(--halloween-text);
+  background: var(--halloween-ink);
+}
+
+.halloween-announcement { background: var(--halloween-lime); color: var(--halloween-ink); }
+.halloween-announcement a { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px 10px; min-height: 36px; padding: 8px 16px; color: inherit; text-decoration: none; text-align: center; text-transform: uppercase; font: 700 11px/1.4 var(--font-body--family); }
+.halloween-edition :is(a, button, input, summary):focus-visible { outline: 2px solid var(--halloween-lime); outline-offset: 4px; }
+.halloween-announcement a:focus-visible { outline-color: var(--halloween-ink); outline-offset: -4px; }
+
+.halloween-campaign { background: var(--halloween-ink); color: var(--halloween-text); font-family: var(--font-body--family); }
+.halloween-campaign :is(h1, h2, h3, p) { margin: 0; color: inherit; }
+.halloween-campaign__inner { width: min(100% - 128px, 1400px); margin-inline: auto; }
+.halloween-campaign__hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 40px; padding-block: 56px 48px; }
+.halloween-campaign__copy { min-width: 0; }
+.halloween-campaign .halloween-campaign__eyebrow { margin-bottom: 24px; color: var(--halloween-lime); font-size: 12px; font-weight: 700; line-height: 1.5; text-transform: uppercase; }
+.halloween-campaign .halloween-campaign__title { max-width: none; font: 400 clamp(64px, 8.3vw, 126px)/.99 'Creepster', var(--font-heading--family), sans-serif; text-transform: uppercase; letter-spacing: 0; overflow-wrap: normal; }
+.halloween-campaign__title span { display: block; }
+.halloween-campaign .halloween-campaign__tagline { margin-top: 28px; color: var(--halloween-orange); font: 700 clamp(26px, 2.5vw, 36px)/1.2 var(--font-heading--family); text-transform: uppercase; }
+.halloween-campaign .halloween-campaign__description { max-width: 43ch; margin-top: 20px; color: var(--halloween-muted); font-size: 16px; line-height: 1.65; }
+.halloween-campaign__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.halloween-campaign__button { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 56px; padding: 16px 24px; background: var(--halloween-lime); border: 1px solid var(--halloween-lime); color: var(--halloween-ink); text-decoration: none; font-size: 12px; line-height: 1.4; font-weight: 700; text-transform: uppercase; }
+.halloween-campaign__button--secondary { border-color: var(--halloween-line); background: var(--halloween-panel); color: var(--halloween-text); }
+.halloween-campaign__button:hover { background: var(--halloween-text); border-color: var(--halloween-text); color: var(--halloween-ink); }
+.halloween-campaign__button--secondary:hover { background: var(--halloween-raised); border-color: var(--halloween-purple); color: var(--halloween-text); }
+.halloween-campaign__button span { flex: 0 0 20px; width: 20px; height: 20px; }
+.halloween-campaign__button svg { width: 100%; height: 100%; }
+.halloween-campaign__artwork { position: relative; min-width: 0; aspect-ratio: 1 / 1; overflow: hidden; background: var(--halloween-panel); }
+.halloween-campaign__artwork::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(0deg, var(--halloween-ink), transparent 22%); }
+.halloween-campaign__image { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Crop the original poster to the skull artwork without altering its source asset. */
+.halloween-campaign__image--poster { position: absolute; width: 132%; max-width: none; height: auto; left: -16%; top: -12%; }
+.halloween-campaign__ticker { padding: 14px 24px; background: var(--halloween-orange); color: var(--halloween-ink); text-align: center; }
+.halloween-campaign__ticker p { font: 700 clamp(18px, 2vw, 26px)/1.35 var(--font-heading--family); text-transform: uppercase; }
+.halloween-campaign__offers { padding-block: 64px; scroll-margin-top: calc(var(--header-height, 80px) + 24px); }
+.halloween-campaign__offers-header { margin-bottom: 32px; }
+.halloween-campaign__offers-header h2 { font: 700 clamp(32px, 3.8vw, 54px)/1.15 var(--font-heading--family); text-transform: uppercase; }
+.halloween-campaign__offers-header p { margin-top: 12px; color: var(--halloween-muted); font-size: 14px; line-height: 1.5; }
+.halloween-campaign__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; }
+.halloween-campaign__grid li { min-width: 0; }
+.halloween-campaign__grid .halloween-campaign__card-content { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; }
+.halloween-campaign__image-slot { display: grid; place-items: center; width: 100%; height: 100%; position: relative; }
+.halloween-campaign__image-placeholder { width: 60%; height: 60%; fill: var(--halloween-muted); opacity: .4; }
+.halloween-campaign__image-slot span { position: absolute; inset: auto 12px 12px; color: var(--halloween-muted); font-size: 12px; text-align: center; }
+.halloween-campaign__shop-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 32px; }
+.halloween-campaign__shop-row p { color: var(--halloween-muted); font-size: 12px; line-height: 1.5; }
+.halloween-campaign__statement { padding-block: 48px; background: var(--halloween-panel); }
+.halloween-campaign__statement h2 { font: 700 clamp(36px, 4.2vw, 60px)/1.12 var(--font-heading--family); text-transform: uppercase; }
+.halloween-campaign__statement p { margin-top: 16px; color: var(--halloween-muted); font-size: 16px; line-height: 1.5; }
+
+/* Keep native navigation, drawers and merchandising in the same seasonal palette. */
+.halloween-edition #header-component,
+.halloween-edition #header-component .header__row { --color-background: var(--halloween-ink); --color-background-rgb: var(--halloween-ink-rgb); --color-background-top-row: var(--halloween-ink); --color-foreground: var(--halloween-text); --color-foreground-rgb: var(--halloween-text-rgb); --color-primary: var(--halloween-text); --color-account-icon: var(--halloween-text); --cart-bubble-background: var(--halloween-lime); --cart-bubble-text: var(--halloween-ink); background: var(--halloween-ink); color: var(--halloween-text); }
+.halloween-edition #header-component :is(.header-actions__action, .header__icon--menu) { color: var(--halloween-text); }
+.halloween-edition :is(.rir-section, .rare-editorial, .rir-manifesto) { background: var(--halloween-ink); color: var(--halloween-text); --rir-ink: var(--halloween-text); }
+.halloween-edition [data-testid='collection-list'],
+.halloween-edition .shopify-section:has([data-testid='collection-list']) > .section-background { --color-background: var(--halloween-ink); --color-background-rgb: var(--halloween-ink-rgb); --color-foreground: var(--halloween-text); --color-foreground-rgb: var(--halloween-text-rgb); background: var(--halloween-ink); color: var(--halloween-text); }
+.halloween-edition :is(.rir-section__subtitle, .rir-section__empty, .rir-manifesto__statement span + span) { color: var(--halloween-muted); }
+.halloween-edition .rir-section__eyebrow { color: var(--halloween-purple); }
+.halloween-edition .rir-section__cta { color: var(--halloween-text); border-color: var(--halloween-line); }
+.halloween-edition .rir-rotation__filter { background: var(--halloween-panel); color: var(--halloween-text); border-color: var(--halloween-line); }
+.halloween-edition .rir-rotation__filter[aria-pressed='true'] { background: var(--halloween-lime); color: var(--halloween-ink); border-color: var(--halloween-lime); }
+.halloween-edition .rir-site-product-card.rir-site-product-card,
+.halloween-edition .rir-site-product-card .product-card__content.product-card__content,
+.halloween-edition .resource-card.resource-card[data-resource-type='product'] { background: var(--halloween-ink); color: var(--halloween-text); --color-background: var(--halloween-ink); --color-background-rgb: var(--halloween-ink-rgb); --color-foreground: var(--halloween-text); --color-foreground-rgb: var(--halloween-text-rgb); }
+.halloween-edition :is(.rir-card__title, .rir-card__price, .rir-card__swatch),
+.halloween-edition .rir-native-product-card [ref='productTitleLink'],
+.halloween-edition .rir-native-product-card [ref='productTitleLink'] :is(.text-block, p, h1, h2, h3, h4, h5, h6),
+.halloween-edition .rir-site-product-card.rir-native-product-card product-price,
+.halloween-edition .resource-card[data-resource-type='product'] :is(.resource-card__title, .resource-card__content) { color: var(--halloween-text); }
+.halloween-edition :is(.rir-card__price, .rir-native-product-card product-price) .compare-at-price { color: var(--halloween-muted); }
+.halloween-edition .rir-section :is(a, button, ul):focus-visible,
+.halloween-edition .rir-site-product-card :is(a, button, input):focus-visible { outline-color: var(--halloween-lime); }
+.halloween-edition :is(.rir-card__media, .rir-card__image--secondary),
+.halloween-edition .rir-native-product-card .card-gallery.card-gallery,
+.halloween-edition .rir-native-product-card .card-gallery .product-media-container,
+.halloween-edition .resource-card[data-resource-type='product'] :is(.resource-card__media, .resource-card__image-placeholder),
+.halloween-edition .product-information .product-media-container,
+.halloween-edition zoom-dialog dialog { background: var(--halloween-ink); border-color: var(--halloween-line); }
+.halloween-edition .product-information :is(.slideshow-control, .slideshow-controls__control) { color: var(--halloween-text); }
+
+@media (min-width: 750px) and (max-width: 1199px) {
+  .halloween-campaign__inner { width: calc(100% - 64px); }
+  .halloween-campaign__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .halloween-campaign__hero { gap: 24px; }
+  .halloween-campaign__button { padding-inline: 18px; }
+}
+@media (max-width: 749px) {
+  .halloween-announcement a { font-size: 10px; }
+  .halloween-campaign__inner { width: calc(100% - 40px); }
+  .halloween-campaign__hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 36px 32px; }
+  .halloween-campaign .halloween-campaign__title { font-size: clamp(54px, 17.4vw, 110px); }
+  .halloween-campaign .halloween-campaign__eyebrow { margin-bottom: 20px; font-size: 11px; }
+  .halloween-campaign .halloween-campaign__tagline { margin-top: 20px; }
+  .halloween-campaign .halloween-campaign__description { font-size: 14px; }
+  .halloween-campaign__actions { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .halloween-campaign__actions .halloween-campaign__button { width: 100%; }
+  .halloween-campaign__offers { padding-block: 40px; }
+  .halloween-campaign__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .halloween-campaign__shop-row { align-items: stretch; flex-direction: column; gap: 16px; }
+  .halloween-campaign__statement { padding-block: 40px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .halloween-campaign__button { transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease; }
+}
