@@ -639,8 +639,14 @@
 
   .mega-menu__column {
     display: grid;
+    align-content: start;
     gap: var(--padding-xs) var(--menu-horizontal-gap);
     grid-column: span 1;
+  }
+
+  .mega-menu__grid:not(:has(.mega-menu__link-image)) .mega-menu__list {
+    align-self: start;
+    align-items: start;
   }
 
   .mega-menu__grid:not(:has(.mega-menu__link-image)) .mega-menu__column:not(:has(ul)) {
