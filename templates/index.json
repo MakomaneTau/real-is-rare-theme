@@ -11,20 +11,10 @@
   "sections": {
     "halloween_campaign": {
       "type": "halloween-campaign",
-      "settings": {},
-      "blocks": {
-        "puzzle_tracksuit": { "type": "offer", "settings": { "product": "rr-puzzle-tracksuit-set-black-x-white", "title": "Puzzle tracksuit", "sale_price": 900, "original_price": 1200, "link": "shopify://collections/tracksuits-sets" } },
-        "ns_set": { "type": "offer", "settings": { "title": "NS set", "sale_price": 800, "original_price": 900, "link": "shopify://collections/tracksuits-sets" } },
-        "cargo_pants": { "type": "offer", "settings": { "product": "uncuffed-cargo-pants-black", "title": "Cargo pants", "sale_price": 350, "original_price": 450, "link": "shopify://collections/track-pants-sweatpants" } },
-        "cargo_jorts": { "type": "offer", "settings": { "title": "Cargo jorts", "sale_price": 300, "original_price": 400, "link": "shopify://collections/shorts" } },
-        "t_shirt": { "type": "offer", "settings": { "product": "real-is-rare-statement-t-shirt-black", "title": "Any T-shirt design", "sale_price": 350, "original_price": 0, "link": "shopify://collections/t-shirts" } },
-        "hoodie": { "type": "offer", "settings": { "product": "classic-rr-aytg-hoodie", "title": "Hoodie", "sale_price": 350, "original_price": 450, "link": "shopify://collections/hoodies" } },
-        "five_panel_cap": { "type": "offer", "settings": { "product": "panel-cap-black", "title": "5-panel cap", "sale_price": 100, "original_price": 200, "link": "shopify://collections/headwear" } },
-        "three_d_cap": { "type": "offer", "settings": { "title": "3D cap", "sale_price": 200, "original_price": 300, "link": "shopify://collections/headwear" } },
-        "beanie": { "type": "offer", "settings": { "product": "classic-beanie-1", "title": "Beanie", "sale_price": 50, "original_price": 100, "highlight": true, "link": "shopify://collections/headwear" } },
-        "tote_bags": { "type": "offer", "settings": { "title": "Tote bags", "sale_price": 100, "original_price": 150 } }
-      },
-      "block_order": ["puzzle_tracksuit", "ns_set", "cargo_pants", "cargo_jorts", "t_shirt", "hoodie", "five_panel_cap", "three_d_cap", "beanie", "tote_bags"]
+      "settings": {
+        "collection": "halloween-sale",
+        "shop_label": "Shop Halloween Sale"
+      }
     },
     "1788961065d79ed462": {
       "type": "_blocks",

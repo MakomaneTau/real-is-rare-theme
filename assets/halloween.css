@@ -72,9 +72,6 @@
 .halloween-campaign__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; }
 .halloween-campaign__grid li { min-width: 0; }
 .halloween-campaign__grid .halloween-campaign__card-content { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; }
-.halloween-campaign__image-slot { display: grid; place-items: center; width: 100%; height: 100%; position: relative; }
-.halloween-campaign__image-placeholder { width: 60%; height: 60%; fill: var(--halloween-muted); opacity: .4; }
-.halloween-campaign__image-slot span { position: absolute; inset: auto 12px 12px; color: var(--halloween-muted); font-size: 12px; text-align: center; }
 .halloween-campaign__shop-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 32px; }
 .halloween-campaign__shop-row p { color: var(--halloween-muted); font-size: 12px; line-height: 1.5; }
 .halloween-campaign__statement { padding-block: 48px; background: var(--halloween-panel); }
