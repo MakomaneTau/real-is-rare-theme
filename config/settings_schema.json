@@ -2143,13 +2143,13 @@
         "type": "text",
         "id": "halloween_announcement",
         "label": "Announcement",
-        "default": "Halloween special"
+        "default": "Halloween special: Up to 50% off selected items"
       },
       {
         "type": "text",
         "id": "halloween_date",
-        "label": "Campaign date",
-        "default": "Friday, 30 October 2026"
+        "label": "Campaign dates",
+        "default": "26 October - 1 November 2026"
       },
       {
         "type": "color",

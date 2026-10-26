@@ -10,8 +10,8 @@
 {
   "current": {
     "halloween_enabled": true,
-    "halloween_announcement": "Halloween special",
-    "halloween_date": "Friday, 30 October 2026",
+    "halloween_announcement": "Halloween special: Up to 50% off selected items",
+    "halloween_date": "26 October - 1 November 2026",
     "logo": "shopify://shop_images/Firefly.png",
     "logo_inverse": "shopify://shop_images/ChatGPT_Image_Sep_24__2026__10_47_46_AM-removebg-preview.png",
     "favicon": "shopify://shop_images/ChatGPT_Image_Sep_24_2026_10_16_14_AM_e37a8cfa-bb07-4dde-992b-0f3e42723293.png",

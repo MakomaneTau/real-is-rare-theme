@@ -13,6 +13,8 @@
       "type": "halloween-campaign",
       "settings": {
         "collection": "halloween-sale",
+        "tagline": "Up to 50% off selected items",
+        "ticker": "Up to 50% off selected items",
         "shop_label": "Shop the sale"
       }
     },
