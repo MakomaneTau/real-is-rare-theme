@@ -2,45 +2,53 @@
   {% liquid
     assign campaign_collection = section.settings.collection
     assign shop_link = campaign_collection.url
-    assign campaign_alt = section.settings.image.alt | default: 'Neon pumpkin skull and jack-o-lanterns from the Real Is Rare Halloween campaign'
+    assign campaign_alt = section.settings.image.alt | default: 'Neon pumpkin skeleton surrounded by jack-o-lanterns, spiderwebs and purple mist'
+    assign hero_link = shop_link | default: '#HalloweenOffers'
   %}
   <div class="halloween-campaign">
-    <div class="halloween-campaign__hero halloween-campaign__inner">
-      <div class="halloween-campaign__copy">
-        <p class="halloween-campaign__eyebrow">{{ settings.halloween_date | escape }}</p>
-        <h1 class="halloween-campaign__title">
-          <span>{{ section.settings.heading | escape }}</span>
-          <span>{{ section.settings.heading_second_line | escape }}</span>
-        </h1>
-        <p class="halloween-campaign__tagline">{{ section.settings.tagline | escape }}</p>
-        <p class="halloween-campaign__description">{{ section.settings.description | escape }}</p>
-        <div class="halloween-campaign__actions">
-          <a class="halloween-campaign__button" href="#HalloweenOffers">
-            {{ section.settings.button_label | escape }}
-            <span aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
-          </a>
-          {% if shop_link != blank %}
-          <a class="halloween-campaign__button halloween-campaign__button--secondary" href="{{ shop_link }}">
-            {{ section.settings.shop_label | escape }}
-            <span aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
-          </a>
-          {% endif %}
-        </div>
-      </div>
-      <div class="halloween-campaign__artwork">
+    <div class="halloween-campaign__hero">
+      <picture class="halloween-campaign__artwork">
+        {% if section.settings.mobile_image != blank %}
+          <source
+            media="(max-width: 749px)"
+            srcset="{{ section.settings.mobile_image | image_url: width: 390 }} 390w, {{ section.settings.mobile_image | image_url: width: 600 }} 600w, {{ section.settings.mobile_image | image_url: width: 941 }} 941w"
+            sizes="100vw"
+            width="{{ section.settings.mobile_image.width }}"
+            height="{{ section.settings.mobile_image.height }}"
+          >
+        {% else %}
+          <source media="(max-width: 749px)" srcset="{{ 'halloween-hero-mobile.png' | asset_url }}" width="941" height="1672">
+        {% endif %}
         {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 1400 | image_tag: class: 'halloween-campaign__image', widths: '390, 600, 800, 1000, 1400', sizes: '(min-width: 990px) 46vw, 100vw', loading: 'eager', fetchpriority: 'high', alt: campaign_alt }}
+          {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'halloween-campaign__image', widths: '750, 1100, 1440, 1672, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', alt: campaign_alt }}
         {% else %}
           <img
-            class="halloween-campaign__image halloween-campaign__image--poster"
-            src="{{ 'halloween-2026-poster.jpg' | asset_url }}"
-            width="995"
-            height="1280"
+            class="halloween-campaign__image"
+            src="{{ 'halloween-hero-desktop.png' | asset_url }}"
+            width="1672"
+            height="941"
             alt="{{ campaign_alt | escape }}"
             loading="eager"
             fetchpriority="high"
           >
         {% endif %}
+      </picture>
+      <div class="halloween-campaign__hero-inner halloween-campaign__inner">
+        <div class="halloween-campaign__copy">
+          {% if section.settings.tagline != blank %}<p class="halloween-campaign__eyebrow">{{ section.settings.tagline | escape }}</p>{% endif %}
+          <h1 class="halloween-campaign__title">
+            <span>{{ section.settings.heading | escape }}</span>
+            <span>{{ section.settings.heading_second_line | escape }}</span>
+          </h1>
+          {% if section.settings.description != blank %}<p class="halloween-campaign__description">{{ section.settings.description | escape }}</p>{% endif %}
+          <p class="halloween-campaign__date">{{ settings.halloween_date | escape }}</p>
+          <div class="halloween-campaign__actions">
+            <a class="halloween-campaign__button" href="{{ hero_link }}">
+              {{ section.settings.shop_label | escape }}
+              <span aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -130,32 +138,32 @@
     {
       "type": "text",
       "id": "tagline",
-      "label": "Tagline",
-      "default": "Rare after dark."
+      "label": "Hero lead-in",
+      "default": "One day. Rare prices."
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Your favourite fits. Frightfully good prices. The Real Is Rare Halloween special lands Friday, 30 October."
+      "default": "Your favourites. Frightfully good prices."
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Campaign artwork",
-      "info": "Leave empty to use the supplied 2026 Halloween poster."
+      "label": "Desktop artwork",
+      "info": "Landscape image for tablets and desktop. Leave empty to use the supplied neon pumpkin artwork."
     },
     {
-      "type": "text",
-      "id": "button_label",
-      "label": "Offers button label",
-      "default": "Explore the offers"
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile artwork",
+      "info": "Portrait image for screens below 750px. Leave empty to use the supplied portrait neon pumpkin artwork."
     },
     {
       "type": "text",
       "id": "shop_label",
       "label": "Shop button label",
-      "default": "Shop all pieces"
+      "default": "Shop the sale"
     },
     {
       "type": "text",
