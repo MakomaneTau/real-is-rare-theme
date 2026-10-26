@@ -2,6 +2,10 @@
 {% liquid
   assign campaign_image = section.settings.image
   assign campaign_mobile_image = section.settings.mobile_image
+  assign is_halloween_collection = false
+  if collection.handle == 'halloween-sale'
+    assign is_halloween_collection = true
+  endif
 
   if collection.handle != 'all' and collection.image != blank
     assign campaign_image = collection.image
@@ -9,7 +13,7 @@
   endif
 %}
 <section
-  class="rare-editorial rare-collection-intro"
+  class="rare-editorial rare-collection-intro{% if is_halloween_collection %} rare-collection-intro--halloween{% endif %}"
   style="
     --campaign-desktop-ratio: {{ section.settings.desktop_ratio | default: '3 / 1' }};
     --campaign-mobile-ratio: {{ section.settings.mobile_ratio | default: '4 / 3' }};
@@ -22,7 +26,9 @@
     {% if collection.description != blank %}<div class="rare-editorial__intro">{{ collection.description }}</div>{% endif %}
   </div>
   <div class="rare-editorial__photo">
-    {% if campaign_image != blank %}
+    {% if is_halloween_collection %}
+      {% render 'halloween-collection-logo', desktop_logo: section.settings.halloween_logo, mobile_logo: section.settings.halloween_mobile_logo %}
+    {% elsif campaign_image != blank %}
       {% render 'campaign-image', image: campaign_image, mobile_image: campaign_mobile_image, alt: collection.title %}
     {% else %}
       <div class="rare-editorial__placeholder">{{ 'hero-apparel-1' | placeholder_svg_tag }}<p>Wide campaign photograph of models wearing this collection. Keep faces and garments near the center for mobile cropping.</p></div>
@@ -37,10 +43,23 @@
   margin-inline: auto;
   max-height: var(--campaign-desktop-height);
 }
+.rare-collection-intro--halloween .rare-editorial__photo {
+  aspect-ratio: 3 / 1;
+  max-height: none;
+  background: transparent;
+}
+.rare-collection-intro--halloween .rare-editorial__photo img {
+  object-fit: contain;
+}
 @media (max-width: 749px) {
   .rare-collection-intro .rare-editorial__photo {
     aspect-ratio: var(--campaign-mobile-ratio);
     max-height: var(--campaign-mobile-height);
+  }
+  .rare-collection-intro--halloween .rare-editorial__photo {
+    aspect-ratio: 1 / 1;
+    max-width: 420px;
+    max-height: none;
   }
 }
 {% endstylesheet %}
@@ -49,6 +68,22 @@
   "name": "Collection campaign",
   "enabled_on": { "templates": ["collection"] },
   "settings": [
+    {
+      "type": "header",
+      "content": "Halloween Sale logos"
+    },
+    {
+      "type": "image_picker",
+      "id": "halloween_logo",
+      "label": "Halloween desktop logo",
+      "info": "Only used on the Halloween Sale collection. Leave empty to use the supplied straight wordmark. The entire logo remains visible."
+    },
+    {
+      "type": "image_picker",
+      "id": "halloween_mobile_logo",
+      "label": "Halloween mobile logo",
+      "info": "Only used on the Halloween Sale collection below 750px. Leave empty to use the supplied round logo."
+    },
     {
       "type": "image_picker",
       "id": "image",

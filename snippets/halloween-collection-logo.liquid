@@ -1,0 +1,31 @@
+{%- doc -%}
+  Responsive Halloween collection branding with bundled logo fallbacks.
+  @param {image} [desktop_logo] - Horizontal wordmark for desktop
+  @param {image} [mobile_logo] - Round logo for mobile
+{%- enddoc -%}
+{% assign logo_alt = desktop_logo.alt | default: shop.name %}
+<picture>
+  {% if mobile_logo != blank %}
+    <source
+      media="(max-width: 749px)"
+      srcset="{{ mobile_logo | image_url: width: 400 }} 400w, {{ mobile_logo | image_url: width: 800 }} 800w, {{ mobile_logo | image_url: width: 1254 }} 1254w"
+      sizes="(max-width: 480px) calc(100vw - 40px), 420px"
+      width="{{ mobile_logo.width }}"
+      height="{{ mobile_logo.height }}"
+    >
+  {% else %}
+    <source media="(max-width: 749px)" srcset="{{ 'halloween-round-logo.png' | asset_url }}" width="1254" height="1254">
+  {% endif %}
+  {% if desktop_logo != blank %}
+    {{ desktop_logo | image_url: width: 2400 | image_tag: widths: '750, 1100, 1500, 1800, 2172, 2400', sizes: '(min-width: 1600px) calc(100vw - 160px), 90vw', loading: 'eager', fetchpriority: 'high', alt: logo_alt }}
+  {% else %}
+    <img
+      src="{{ 'halloween-wordmark.png' | asset_url }}"
+      width="2172"
+      height="724"
+      alt="{{ logo_alt | escape }}"
+      loading="eager"
+      fetchpriority="high"
+    >
+  {% endif %}
+</picture>
