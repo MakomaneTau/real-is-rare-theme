@@ -7,8 +7,8 @@
 .rir-card__image--secondary { position: absolute; inset: 0; opacity: 0; background: var(--rir-tile-background, #f4f4f2); }
 .rir-card__placeholder { width: 100%; height: 100%; fill: #666; }
 .rir-card__badge { position: absolute; inset: 16px auto auto 16px; background: #fff; color: #0b0b0b; border: 1px solid #d3d3d0; padding: 7px 9px; font-size: 10px; font-weight: 600; line-height: 1.4; text-transform: uppercase; }
-.rir-card__arrow { position: absolute; inset: auto 12px 12px auto; display: grid; place-items: center; width: 44px; height: 44px; background: #fff; border: 1px solid #d3d3d0; }
-.rir-card__arrow svg { width: 18px; height: 18px; transform: rotate(-45deg); }
+.rir-card__arrow { position: absolute; inset: auto 12px 12px auto; display: grid; place-items: center; width: 44px; height: 44px; background: #fff; color: #0b0b0b; border: 1px solid #d3d3d0; }
+.rir-card__arrow svg { width: 18px; height: 18px; color: inherit; transform: rotate(-45deg); }
 .rir-card__details { display: flex; justify-content: space-between; align-items: start; gap: 12px; font-size: 13px; line-height: 1.5; }
 .rir-card__title { color: #0b0b0b; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
 .rir-card__title:hover { text-decoration: underline; }
